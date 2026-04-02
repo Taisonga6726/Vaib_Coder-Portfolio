@@ -1,19 +1,19 @@
-/* === TG Brand — Tanya Gaiduk / Art Studio «Тонкая Грань» (skill tg-brand-design) === */
+/* === TG Brand — Art Studio «Тонкая Грань» (skill tg-brand-design) === */
 
 :root {
   /* BACKGROUNDS — баннер «Искусство технологий»: бордо/малиновый → центр → глубокий синий */
-  --tg-deep-navy: #000a30;
-  --tg-dark-base: #000000;
-  --tg-royal-blue: #001a4d;
-  --tg-purple-mid: #4b001d;
-  --tg-dark-blue: #000e1f;
+  --tg-deep-navy: #920fdd;
+  --tg-dark-base: #d610c6;
+  --tg-royal-blue: #c73bc0;
+  --tg-purple-mid: #b813aa;
+  --tg-dark-blue: #111fe6;
 
   /* GOLD — тёплое золото баннера (основа, подсветка, неоновое свечение) */
-  --tg-gold: #e5b80b;
-  --tg-gold-light: #ffbf00;
+  --tg-gold: #d4eb0d;
+  --tg-gold-light: #fbff00;
   --tg-gold-gradient: linear-gradient(
     135deg,
-    #c9a012 0%,
+    #c9b712 0%,
     #e5b80b 35%,
     #ffbf00 55%,
     #ffa500 78%,
@@ -22,31 +22,31 @@
 
   /* MAGENTA */
   --tg-magenta: #ff0055;
-  --tg-magenta-deep: #7a0026;
+  --tg-magenta-deep: #d81352;
 
   /* SUPPLEMENTARY */
-  --tg-electric-blue: #0070ff;
+  --tg-electric-blue: #0a2ed1;
   --tg-vivid-purple: #6a0dad;
-  --tg-orange-glow: #ff9d00;
+  --tg-orange-glow: #e100ff;
 
   /* TEXT */
   --tg-white: #ffffff;
   --tg-soft-white: #e8ecf5;
-  --tg-muted: #9ca3af;
+  --tg-muted: #d5d2e4;
 
   /* BACKGROUND GRADIENTS */
   --tg-bg-main: linear-gradient(
     135deg,
-    #4b001d 0%,
-    #1a0008 22%,
-    #000000 50%,
-    #000a28 78%,
-    #001a4d 100%
+    #cf0c57 0%,
+    #c415b5 22%,
+    #c10ed1 50%,
+    #630dd3 78%,
+    #470981 100%
   );
   --tg-bg-section: linear-gradient(
     180deg,
-    #3d0818 0%,
-    #000000 45%,
+    #840b9c 0%,
+    #d211e4 45%,
     #000a30 100%
   );
   --tg-glow-magenta: radial-gradient(
@@ -78,7 +78,7 @@
   /* BUTTONS */
   --tg-btn-primary-bg: linear-gradient(
     135deg,
-    #c9a012 0%,
+    #a3099b 0%,
     #e5b80b 38%,
     #ffbf00 62%,
     #e5b80b 100%
