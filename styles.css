@@ -1,77 +1,97 @@
 /* === TG Brand — Tanya Gaiduk / Art Studio «Тонкая Грань» (skill tg-brand-design) === */
 
 :root {
-  /* BACKGROUNDS */
-  --tg-deep-navy: #0a0e27;
-  --tg-dark-base: #070b1e;
-  --tg-royal-blue: #1a3a8f;
-  --tg-purple-mid: #1a1040;
-  --tg-dark-blue: #0d1b3e;
+  /* BACKGROUNDS — баннер «Искусство технологий»: бордо/малиновый → центр → глубокий синий */
+  --tg-deep-navy: #000a30;
+  --tg-dark-base: #000000;
+  --tg-royal-blue: #001a4d;
+  --tg-purple-mid: #4b001d;
+  --tg-dark-blue: #000e1f;
 
-  /* GOLD */
-  --tg-gold: #d4a843;
-  --tg-gold-light: #f5d77a;
-  --tg-gold-gradient: linear-gradient(135deg, #d4a843, #f5d77a, #d4a843);
+  /* GOLD — тёплое золото баннера (основа, подсветка, неоновое свечение) */
+  --tg-gold: #e5b80b;
+  --tg-gold-light: #ffbf00;
+  --tg-gold-gradient: linear-gradient(
+    135deg,
+    #c9a012 0%,
+    #e5b80b 35%,
+    #ffbf00 55%,
+    #ffa500 78%,
+    #e5b80b 100%
+  );
 
   /* MAGENTA */
-  --tg-magenta: #e91e90;
-  --tg-magenta-deep: #9b1b7a;
+  --tg-magenta: #ff0055;
+  --tg-magenta-deep: #7a0026;
 
   /* SUPPLEMENTARY */
-  --tg-electric-blue: #2e5bff;
+  --tg-electric-blue: #0070ff;
   --tg-vivid-purple: #6a0dad;
-  --tg-orange-glow: #ff6b2b;
+  --tg-orange-glow: #ff9d00;
 
   /* TEXT */
   --tg-white: #ffffff;
-  --tg-soft-white: #e0e0e0;
+  --tg-soft-white: #e8ecf5;
   --tg-muted: #9ca3af;
 
   /* BACKGROUND GRADIENTS */
   --tg-bg-main: linear-gradient(
     135deg,
-    #0a0e27 0%,
-    #1a1040 30%,
-    #0d1b3e 60%,
-    #0a0e27 100%
+    #4b001d 0%,
+    #1a0008 22%,
+    #000000 50%,
+    #000a28 78%,
+    #001a4d 100%
   );
-  --tg-bg-section: linear-gradient(180deg, #1a1040 0%, #0a0e27 100%);
+  --tg-bg-section: linear-gradient(
+    180deg,
+    #3d0818 0%,
+    #000000 45%,
+    #000a30 100%
+  );
   --tg-glow-magenta: radial-gradient(
     ellipse at center,
-    rgba(233, 30, 144, 0.15) 0%,
-    rgba(42, 91, 255, 0.1) 50%,
+    rgba(255, 0, 85, 0.14) 0%,
+    rgba(0, 112, 255, 0.1) 50%,
     transparent 70%
   );
   --tg-glow-blue: radial-gradient(
-    ellipse at 70% 50%,
-    rgba(46, 91, 255, 0.12) 0%,
-    transparent 60%
+    ellipse at 72% 48%,
+    rgba(0, 112, 255, 0.14) 0%,
+    transparent 58%
   );
   --tg-glow-gold: radial-gradient(
     ellipse at center,
-    rgba(212, 168, 67, 0.08) 0%,
-    transparent 50%
+    rgba(229, 184, 11, 0.12) 0%,
+    rgba(255, 157, 0, 0.06) 45%,
+    transparent 55%
   );
 
   /* CARDS */
   --tg-card-bg: rgba(255, 255, 255, 0.03);
-  --tg-card-border: rgba(212, 168, 67, 0.2);
-  --tg-card-border-hover: rgba(212, 168, 67, 0.6);
-  --tg-card-glow: 0 0 30px rgba(212, 168, 67, 0.1);
+  --tg-card-border: rgba(229, 184, 11, 0.25);
+  --tg-card-border-hover: rgba(255, 191, 0, 0.65);
+  --tg-card-glow: 0 0 30px rgba(229, 184, 11, 0.14);
   --tg-card-radius: 16px;
   --tg-card-blur: blur(10px);
 
   /* BUTTONS */
-  --tg-btn-primary-bg: linear-gradient(135deg, #d4a843, #f5d77a, #d4a843);
-  --tg-btn-primary-text: #0a0e27;
-  --tg-btn-primary-glow: 0 0 20px rgba(212, 168, 67, 0.5);
-  --tg-btn-secondary-border: 1.5px solid #d4a843;
-  --tg-btn-accent-bg: linear-gradient(135deg, #e91e90, #9b1b7a);
-  --tg-btn-accent-glow: 0 0 25px rgba(233, 30, 144, 0.4);
+  --tg-btn-primary-bg: linear-gradient(
+    135deg,
+    #c9a012 0%,
+    #e5b80b 38%,
+    #ffbf00 62%,
+    #e5b80b 100%
+  );
+  --tg-btn-primary-text: #050010;
+  --tg-btn-primary-glow: 0 0 22px rgba(255, 157, 0, 0.55);
+  --tg-btn-secondary-border: 1.5px solid #e5b80b;
+  --tg-btn-accent-bg: linear-gradient(135deg, #ff0055, #7a0026);
+  --tg-btn-accent-glow: 0 0 28px rgba(255, 0, 85, 0.45);
   --tg-btn-radius: 8px;
 
   /* HEADER */
-  --tg-header-bg: rgba(10, 14, 39, 0.85);
+  --tg-header-bg: rgba(0, 10, 48, 0.88);
   --tg-header-blur: blur(20px);
 
   /* Aliases (совместимость с разметкой) */
@@ -201,7 +221,7 @@ a:hover {
   background: var(--tg-header-bg);
   backdrop-filter: var(--tg-header-blur);
   -webkit-backdrop-filter: var(--tg-header-blur);
-  border-bottom: 1px solid rgba(212, 168, 67, 0.1);
+  border-bottom: 1px solid rgba(229, 184, 11, 0.1);
 }
 
 .header-inner {
@@ -234,7 +254,7 @@ a:hover {
   background-clip: text;
   color: transparent;
   letter-spacing: 0.02em;
-  filter: drop-shadow(0 0 20px rgba(212, 168, 67, 0.25));
+  filter: drop-shadow(0 0 20px rgba(229, 184, 11, 0.25));
 }
 
 .brand-name {
@@ -353,7 +373,7 @@ a:hover {
   position: fixed;
   inset: 0;
   top: 0;
-  background: rgba(10, 14, 39, 0.97);
+  background: rgba(0, 10, 48, 0.97);
   backdrop-filter: blur(16px);
   flex-direction: column;
   align-items: center;
@@ -427,18 +447,18 @@ a:hover {
   inset: -20%;
   background: radial-gradient(
       ellipse 80% 50% at 50% 20%,
-      rgba(233, 30, 144, 0.12) 0%,
+      rgba(255, 0, 85, 0.12) 0%,
       transparent 55%
     ),
     radial-gradient(
       ellipse 60% 40% at 80% 60%,
-      rgba(46, 91, 255, 0.11) 0%,
+      rgba(0, 112, 255, 0.11) 0%,
       transparent 50%
     ),
     var(--tg-glow-gold),
     radial-gradient(
       ellipse 50% 50% at 10% 80%,
-      rgba(106, 13, 173, 0.14) 0%,
+      rgba(0, 40, 100, 0.14) 0%,
       transparent 45%
     );
   z-index: 0;
@@ -487,17 +507,17 @@ a:hover {
   inset: -12% -8%;
   background: radial-gradient(
       ellipse 55% 50% at 50% 45%,
-      rgba(233, 30, 144, 0.22) 0%,
+      rgba(255, 0, 85, 0.22) 0%,
       transparent 65%
     ),
     radial-gradient(
       ellipse 70% 60% at 40% 60%,
-      rgba(212, 168, 67, 0.12) 0%,
+      rgba(229, 184, 11, 0.12) 0%,
       transparent 60%
     ),
     radial-gradient(
       circle at 50% 15%,
-      rgba(245, 215, 122, 0.08) 0%,
+      rgba(255, 191, 0, 0.08) 0%,
       transparent 45%
     );
   filter: blur(18px);
@@ -525,14 +545,14 @@ a:hover {
   border-radius: 18px;
   background: linear-gradient(
     145deg,
-    rgba(212, 168, 67, 0.95) 0%,
-    rgba(155, 27, 122, 0.65) 45%,
-    rgba(212, 168, 67, 0.9) 100%
+    rgba(229, 184, 11, 0.95) 0%,
+    rgba(122, 0, 38, 0.65) 45%,
+    rgba(229, 184, 11, 0.9) 100%
   );
   box-shadow: 0 24px 56px rgba(0, 0, 0, 0.45),
     0 0 0 1px rgba(255, 255, 255, 0.06) inset,
-    0 0 48px rgba(212, 168, 67, 0.18),
-    0 0 80px rgba(233, 30, 144, 0.1);
+    0 0 48px rgba(229, 184, 11, 0.18),
+    0 0 80px rgba(255, 0, 85, 0.1);
   backdrop-filter: blur(4px);
 }
 
@@ -541,7 +561,7 @@ a:hover {
   overflow: hidden;
   background: var(--tg-deep-navy);
   line-height: 0;
-  border: 1px solid rgba(212, 168, 67, 0.25);
+  border: 1px solid rgba(229, 184, 11, 0.25);
 }
 
 .hero-photo-inner img {
@@ -564,7 +584,7 @@ a:hover {
   height: 28px;
   z-index: 2;
   pointer-events: none;
-  border-color: rgba(245, 215, 122, 0.75);
+  border-color: rgba(255, 191, 0, 0.75);
   border-style: solid;
   border-width: 0;
 }
@@ -646,7 +666,7 @@ a:hover {
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  filter: drop-shadow(0 4px 30px rgba(212, 168, 67, 0.2));
+  filter: drop-shadow(0 4px 30px rgba(229, 184, 11, 0.2));
 }
 
 .hero h1 {
@@ -713,7 +733,7 @@ section {
   height: 55%;
   background: radial-gradient(
     circle,
-    rgba(233, 30, 144, 0.11) 0%,
+    rgba(255, 0, 85, 0.11) 0%,
     transparent 65%
   );
   pointer-events: none;
@@ -725,12 +745,12 @@ section {
   inset: 0;
   background: radial-gradient(
       ellipse at 0% 0%,
-      rgba(233, 30, 144, 0.08) 0%,
+      rgba(255, 0, 85, 0.08) 0%,
       transparent 45%
     ),
     radial-gradient(
       ellipse at 100% 100%,
-      rgba(46, 91, 255, 0.08) 0%,
+      rgba(0, 112, 255, 0.08) 0%,
       transparent 45%
     );
   pointer-events: none;
@@ -750,12 +770,12 @@ section {
   inset: 0;
   background: radial-gradient(
       ellipse at 45% 40%,
-      rgba(233, 30, 144, 0.12) 0%,
+      rgba(255, 0, 85, 0.12) 0%,
       transparent 55%
     ),
     radial-gradient(
       ellipse at 25% 75%,
-      rgba(26, 58, 143, 0.18) 0%,
+      rgba(0, 70, 180, 0.18) 0%,
       transparent 52%
     );
   pointer-events: none;
@@ -771,8 +791,8 @@ section {
   height: min(72vw, 520px);
   background: radial-gradient(
     ellipse,
-    rgba(233, 30, 144, 0.14) 0%,
-    rgba(106, 13, 173, 0.12) 40%,
+    rgba(255, 0, 85, 0.14) 0%,
+    rgba(0, 40, 100, 0.12) 40%,
     transparent 70%
   );
   pointer-events: none;
@@ -793,12 +813,12 @@ section {
   inset: 0;
   background: radial-gradient(
       ellipse at 50% 0%,
-      rgba(212, 168, 67, 0.1) 0%,
+      rgba(229, 184, 11, 0.1) 0%,
       transparent 52%
     ),
     radial-gradient(
       ellipse at 80% 100%,
-      rgba(233, 30, 144, 0.08) 0%,
+      rgba(255, 0, 85, 0.08) 0%,
       transparent 45%
     );
   pointer-events: none;
@@ -1089,7 +1109,7 @@ h3.card-title {
 
 .project-card:hover {
   border-color: var(--tg-card-border-hover);
-  box-shadow: 0 0 35px rgba(212, 168, 67, 0.14);
+  box-shadow: 0 0 35px rgba(229, 184, 11, 0.14);
   transform: translateY(-2px);
 }
 
@@ -1097,13 +1117,13 @@ h3.card-title {
   aspect-ratio: 16 / 9;
   background: linear-gradient(
       135deg,
-      rgba(26, 58, 143, 0.42) 0%,
-      rgba(155, 27, 122, 0.26) 50%,
-      rgba(10, 14, 39, 0.92) 100%
+      rgba(0, 70, 180, 0.42) 0%,
+      rgba(122, 0, 38, 0.26) 50%,
+      rgba(0, 10, 48, 0.92) 100%
     ),
     radial-gradient(
       circle at 30% 30%,
-      rgba(212, 168, 67, 0.14) 0%,
+      rgba(229, 184, 11, 0.14) 0%,
       transparent 50%
     );
   overflow: hidden;
@@ -1120,7 +1140,7 @@ h3.card-title {
   font-size: 14px;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: rgba(245, 215, 122, 0.32);
+  color: rgba(255, 191, 0, 0.32);
   transition: transform 0.45s ease;
 }
 
@@ -1329,7 +1349,7 @@ h3.card-title {
 .site-footer {
   background: var(--footer-bg);
   padding: 64px 0 32px;
-  border-top: 1px solid rgba(212, 168, 67, 0.15);
+  border-top: 1px solid rgba(229, 184, 11, 0.15);
 }
 
 .footer-brand {
@@ -1391,7 +1411,7 @@ h3.card-title {
   background: linear-gradient(
     90deg,
     transparent,
-    rgba(212, 168, 67, 0.5),
+    rgba(229, 184, 11, 0.5),
     transparent
   );
 }
@@ -1409,7 +1429,7 @@ h3.card-title {
   margin-top: 8px;
   font-family: var(--font-script);
   font-size: 16px;
-  color: rgba(212, 168, 67, 0.75);
+  color: rgba(229, 184, 11, 0.75);
 }
 
 .caption,

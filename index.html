@@ -652,8 +652,8 @@
               if (p.y < 0) p.y = h;
               if (p.y > h) p.y = 0;
               var g = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.r * 3);
-              g.addColorStop(0, "rgba(245,215,122," + p.a + ")");
-              g.addColorStop(1, "rgba(212,168,67,0)");
+              g.addColorStop(0, "rgba(255,191,0," + p.a + ")");
+              g.addColorStop(1, "rgba(229,184,11,0)");
               ctx.fillStyle = g;
               ctx.beginPath();
               ctx.arc(p.x, p.y, p.r * 3, 0, Math.PI * 2);
