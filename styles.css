@@ -67,21 +67,32 @@
     transparent 55%
   );
 
-  /* CARDS & блоки — бренд TG: магента / неон / королевский + акцент золота */
-  --tg-card-bg: linear-gradient(
-    145deg,
-    rgba(1, 21, 109, 0.596)),
-    rgba(134, 13, 124, 0.18) 40%,
-    rgba(63, 12, 121, 0.24) 70%,
-    rgba(146, 15, 221, 0.14) 100%
+  /* Карточки: прозрачный слой + текстура шёлка (silk-1775158187343) */
+  --tg-silk-texture: url("images/silk-1775158187343.png");
+  --tg-card-overlay: linear-gradient(
+    168deg,
+    rgba(46, 16, 78, 0.52) 0%,
+    rgba(20, 8, 42, 0.34) 38%,
+    rgba(12, 4, 30, 0.48) 68%,
+    rgba(8, 2, 22, 0.62) 100%
   );
-  --tg-card-border: rgba(var(--tg-rgb-neon), 0.4);
-  --tg-card-border-hover: rgba(var(--tg-rgb-gold-bright), 0.82);
-  --tg-card-glow: 0 0 42px rgba(var(--tg-rgb-neon), 0.24),
-    0 0 80px rgba(var(--tg-rgb-purple-mid), 0.16);
-  --tg-card-inset: inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  --tg-card-overlay-soft: linear-gradient(
+    145deg,
+    rgba(40, 14, 70, 0.44) 0%,
+    rgba(14, 5, 32, 0.32) 100%
+  );
+  --tg-card-base: rgba(6, 2, 18, 0.12);
+  --tg-card-bg: var(--tg-card-base);
+  --tg-card-border: rgba(210, 185, 255, 0.24);
+  --tg-card-border-hover: rgba(255, 224, 170, 0.5);
+  --tg-card-glow: 0 0 40px rgba(120, 70, 180, 0.22),
+    0 22px 50px rgba(0, 0, 0, 0.32);
+  --tg-card-inset: inset 0 1px 0 rgba(255, 255, 255, 0.12);
   --tg-card-radius: 16px;
-  --tg-card-blur: blur(12px);
+  --tg-card-blur: blur(14px) saturate(1.08);
+  /* Текст на карточках (поверх шёлка) — светлее и контрастнее общего body */
+  --tg-card-text: #f4f6fd;
+  --tg-card-text-soft: #e4e9f8;
 
   /* BUTTONS */
   --tg-btn-primary-bg: linear-gradient(
@@ -133,13 +144,14 @@
   --soft-white: var(--tg-soft-white);
   --caption: var(--tg-muted);
   --footer-bg: var(--tg-dark-base);
-  --glass: var(--tg-card-bg);
+  --glass: var(--tg-card-base);
   --gold-border: var(--tg-card-border);
   --container: 1200px;
   --radius-card: var(--tg-card-radius);
   --radius-btn: var(--tg-btn-radius);
 
-  --font-display: "Playfair Display", Georgia, serif;
+  /* Заголовки секций и карточек — один шрифт, «полуночный люкс» */
+  --font-display: "Cormorant Garamond", "Playfair Display", Georgia, serif;
   --font-heading-card: "Cormorant Garamond", "Playfair Display", Georgia, serif;
   --font-ui: "Montserrat", sans-serif;
   --font-body: "Montserrat", sans-serif;
@@ -308,6 +320,35 @@ a:hover {
   padding: 0 clamp(20px, 4vw, 40px);
 }
 
+/* Полуночный шёлк: единая стеклянная поверхность для блоков и карточек */
+.about-text,
+.tariff-card,
+.glass-card,
+.process-item,
+.project-card,
+.why-text,
+.stack-note,
+.audience-list,
+.quote-block,
+.cta-inner {
+  background-color: var(--tg-card-base);
+  background-image: var(--tg-card-overlay), var(--tg-silk-texture);
+  background-size: auto, cover;
+  background-position: center, center;
+  background-repeat: no-repeat, no-repeat;
+  background-blend-mode: normal, soft-light;
+}
+
+.stack-badge,
+.badge {
+  background-color: rgba(8, 2, 22, 0.28);
+  background-image: var(--tg-card-overlay-soft), var(--tg-silk-texture);
+  background-size: auto, 220% 220%;
+  background-position: center, 45% 35%;
+  background-repeat: no-repeat, no-repeat;
+  background-blend-mode: normal, soft-light;
+}
+
 /* --- Header (sticky → fixed по скиллу) --- */
 .site-header {
   position: fixed;
@@ -381,7 +422,7 @@ a:hover {
   .brand-link:hover .logo-tg--luxury,
   .footer-brand .logo-tg-3d--footer:hover .logo-tg--luxury,
   .hero-logo-img,
-  .hero-copy__top:hover .hero-logo-img {
+  .hero-intro:hover .hero-logo-img {
     transition: none;
     transform: none;
     filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.5))
@@ -465,80 +506,40 @@ a:hover {
   transform: translateY(-2px);
 }
 
-/* Неон / радужная обводка — вторичные CTA, форма, модалка, тарифы */
+/* Вторичные CTA — без анимации, лёгкое неоновое свечение в тон сайта */
 .btn-neon {
   position: relative;
-  isolation: isolate;
-  overflow: visible;
   border-radius: 12px !important;
-  border: none !important;
-  background: #080510 !important;
-  color: var(--tg-white) !important;
-  font-weight: 800;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.45);
-}
-
-.btn-neon::before,
-.btn-neon::after {
-  content: "";
-  position: absolute;
-  left: -2px;
-  top: -2px;
-  border-radius: 14px;
+  border: 1px solid rgba(var(--tg-rgb-neon), 0.38) !important;
   background: linear-gradient(
-    45deg,
-    #fb0094,
-    #0000ff,
-    #00ff00,
-    #ffff00,
-    #ff0000,
-    #fb0094,
-    #0000ff,
-    #00ff00,
-    #ffff00,
-    #ff0000
-  );
-  background-size: 400% 400%;
-  width: calc(100% + 4px);
-  height: calc(100% + 4px);
-  z-index: -1;
-  animation: btn-neon-rainbow 20s linear infinite;
-}
-
-.btn-neon::after {
-  filter: blur(28px);
-  opacity: 0.85;
+    168deg,
+    rgba(14, 6, 32, 0.96) 0%,
+    rgba(8, 3, 22, 0.99) 100%
+  ) !important;
+  color: var(--tg-soft-white) !important;
+  font-weight: 600;
+  box-shadow: 0 2px 14px rgba(0, 0, 0, 0.4),
+    0 0 22px rgba(var(--tg-rgb-neon), 0.2),
+    0 0 44px rgba(var(--tg-rgb-royal), 0.12);
+  transition: box-shadow 0.3s ease, border-color 0.3s ease, background 0.3s ease;
 }
 
 .btn-neon:hover {
-  transform: translateY(-2px);
-  color: var(--tg-white) !important;
-  background: #0e0a18 !important;
+  border-color: rgba(var(--tg-rgb-gold-bright), 0.42) !important;
+  background: linear-gradient(
+    168deg,
+    rgba(20, 8, 42, 0.98) 0%,
+    rgba(10, 4, 28, 1) 100%
+  ) !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.45),
+    0 0 28px rgba(var(--tg-rgb-neon), 0.32),
+    0 0 52px rgba(var(--tg-rgb-royal), 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
 }
 
 .btn-neon:focus-visible {
-  outline: 2px solid rgba(var(--tg-rgb-gold-bright), 0.9);
-  outline-offset: 4px;
-}
-
-@keyframes btn-neon-rainbow {
-  0% {
-    background-position: 0% 0%;
-  }
-  50% {
-    background-position: 400% 0%;
-  }
-  100% {
-    background-position: 0% 0%;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .btn-neon::before,
-  .btn-neon::after {
-    animation: none;
-    background-position: 50% 50%;
-  }
+  outline: 2px solid rgba(var(--tg-rgb-gold-bright), 0.85);
+  outline-offset: 3px;
 }
 
 /* Тарифы */
@@ -564,7 +565,6 @@ a:hover {
   gap: 16px;
   padding: clamp(24px, 4vw, 32px);
   border-radius: var(--tg-card-radius);
-  background: var(--tg-card-bg);
   border: 1px solid var(--tg-card-border);
   backdrop-filter: var(--tg-card-blur);
   -webkit-backdrop-filter: var(--tg-card-blur);
@@ -583,8 +583,9 @@ a:hover {
 
 .tariff-card__price {
   font-family: var(--font-display);
-  font-weight: 700;
+  font-weight: 600;
   font-size: clamp(1.75rem, 4vw, 2.25rem);
+  letter-spacing: 0.02em;
   color: var(--tg-white);
   margin: 0;
 }
@@ -592,7 +593,7 @@ a:hover {
 .tariff-card__note {
   margin: 0;
   font-size: 15px;
-  color: var(--tg-soft-white);
+  color: var(--tg-card-text);
   line-height: 1.55;
   flex-grow: 1;
 }
@@ -613,20 +614,26 @@ a:hover {
 
 .modal-neon__hint {
   margin: 0 0 16px;
+  color: var(--tg-card-text-soft);
+  font-size: 14px;
+  line-height: 1.5;
 }
 
 /* Модалка заявки */
 .modal-neon {
   width: min(440px, calc(100vw - 32px));
   padding: 0;
-  border: 1px solid rgba(var(--tg-rgb-neon), 0.45);
+  border: 1px solid rgba(var(--tg-rgb-neon), 0.38);
   border-radius: var(--tg-card-radius);
-  background: linear-gradient(
-    165deg,
-    rgba(20, 6, 36, 0.98) 0%,
-    rgba(10, 4, 24, 0.99) 100%
-  );
-  color: var(--tg-soft-white);
+  background-color: rgba(8, 2, 22, 0.35);
+  background-image: var(--tg-card-overlay), var(--tg-silk-texture);
+  background-size: auto, cover;
+  background-position: center, center;
+  background-repeat: no-repeat, no-repeat;
+  background-blend-mode: normal, soft-light;
+  backdrop-filter: var(--tg-card-blur);
+  -webkit-backdrop-filter: var(--tg-card-blur);
+  color: var(--tg-card-text);
   box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06) inset,
     0 24px 80px rgba(0, 0, 0, 0.65), 0 0 60px rgba(var(--tg-rgb-neon), 0.15);
 }
@@ -651,8 +658,9 @@ a:hover {
 
 .modal-neon__title {
   font-family: var(--font-display);
-  font-weight: 700;
+  font-weight: 600;
   font-size: 1.35rem;
+  letter-spacing: 0.03em;
   color: var(--tg-gold-light);
   margin: 0;
   line-height: 1.25;
@@ -690,7 +698,7 @@ a:hover {
   font-family: var(--font-ui);
   font-size: 13px;
   font-weight: 500;
-  color: var(--tg-muted);
+  color: var(--tg-card-text-soft);
 }
 
 .contact-form-neon input,
@@ -859,35 +867,39 @@ a:hover {
   z-index: 1;
 }
 
-/* Hero: текст + портрет в сетке бренда TG */
+/* Hero: лейбл + лого, затем ряд «заголовок + портрет» на одной линии */
 .hero-grid {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(240px, 400px);
-  grid-template-rows: auto auto;
-  column-gap: clamp(28px, 5vw, 56px);
-  row-gap: clamp(20px, 3vw, 28px);
-  align-items: start;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(18px, 2.5vw, 28px);
 }
 
-.hero-copy__top {
-  grid-column: 1;
-  grid-row: 1;
+.hero-intro {
+  width: 100%;
+}
+
+.hero-headline-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(200px, 360px);
+  align-items: start;
+  column-gap: clamp(24px, 4vw, 48px);
+  row-gap: clamp(16px, 2vw, 20px);
+}
+
+.hero-headline-copy {
+  min-width: 0;
 }
 
 .hero-copy__bottom {
-  grid-column: 1;
-  grid-row: 2;
-  align-self: end;
-  padding-top: 8px;
+  width: 100%;
+  padding-top: 4px;
 }
 
 .hero-visual {
-  grid-column: 2;
-  grid-row: 1 / -1;
-  align-self: center;
+  align-self: start;
   justify-self: end;
   width: 100%;
-  max-width: 400px;
+  max-width: 360px;
   margin: 0;
   position: relative;
 }
@@ -1028,7 +1040,7 @@ a:hover {
 .hero-portrait-img {
   width: 100%;
   height: auto;
-  max-height: min(78vh, 560px);
+  max-height: min(70vh, 500px);
   display: block;
   margin: 0 auto;
   object-fit: contain;
@@ -1099,31 +1111,17 @@ a:hover {
 }
 
 @media (max-width: 960px) {
-  .hero-grid {
+  .hero-headline-row {
     grid-template-columns: 1fr;
-    grid-template-rows: auto auto auto;
-  }
-
-  .hero-copy__top {
-    grid-column: 1;
-    grid-row: 1;
   }
 
   .hero-visual {
-    grid-column: 1;
-    grid-row: 2;
     justify-self: center;
     max-width: min(340px, 88vw);
   }
 
   .hero-visual--cutout .hero-portrait-img {
     max-height: min(52vh, 420px);
-  }
-
-  .hero-copy__bottom {
-    grid-column: 1;
-    grid-row: 3;
-    align-self: stretch;
   }
 }
 
@@ -1166,7 +1164,7 @@ a:hover {
     filter 0.55s ease;
 }
 
-.hero-copy__top:hover .hero-logo-img {
+  .hero-intro:hover .hero-logo-img {
   transform: rotateX(5deg) rotateY(6deg) scale(1.04) translateZ(20px);
   filter: drop-shadow(0 20px 44px rgba(0, 0, 0, 0.6))
     drop-shadow(0 0 40px rgba(255, 240, 200, 0.75))
@@ -1189,11 +1187,12 @@ a:hover {
 
 .hero h1 {
   font-family: var(--font-display);
-  font-weight: 700;
-  font-size: clamp(2rem, 5vw, 3.5rem);
-  line-height: 1.15;
-  max-width: 920px;
-  margin: 0 0 24px;
+  font-weight: 600;
+  font-size: clamp(1.55rem, 3.15vw, 2.45rem);
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  max-width: 38rem;
+  margin: 0 0 20px;
   background: var(--tg-gold-gradient);
   background-size: 200% auto;
   -webkit-background-clip: text;
@@ -1275,7 +1274,12 @@ section {
 }
 
 .section-vertical {
-  background: var(--tg-bg-section);
+  background: linear-gradient(
+    180deg,
+    rgba(132, 11, 156, 0.06) 0%,
+    rgba(63, 12, 121, 0.04) 45%,
+    transparent 100%
+  );
 }
 
 .section-deep {
@@ -1319,9 +1323,9 @@ section {
 .section-cta-final {
   background: linear-gradient(
     180deg,
-    var(--tg-deep-navy) 0%,
-    rgba(var(--tg-rgb-purple-mid), 0.38) 50%,
-    var(--tg-deep-navy) 100%
+    rgba(146, 15, 221, 0.07) 0%,
+    rgba(63, 12, 121, 0.05) 50%,
+    rgba(8, 2, 22, 0.08) 100%
   );
 }
 
@@ -1355,21 +1359,25 @@ section {
 
 h2.section-title {
   font-family: var(--font-display);
-  font-weight: 700;
+  font-weight: 600;
   font-size: clamp(28px, 4vw, 44px);
-  color: var(--tg-gold);
+  letter-spacing: 0.03em;
+  line-height: 1.22;
   margin: 0 0 28px;
-  line-height: 1.2;
+  color: var(--tg-soft-white);
+  text-shadow: 0 2px 24px rgba(0, 0, 0, 0.35),
+    0 0 48px rgba(120, 80, 180, 0.2);
 }
 
 h3.card-title {
-  font-family: var(--font-heading-card);
+  font-family: var(--font-display);
   font-weight: 600;
-  font-size: clamp(20px, 2.1vw, 24px);
+  font-size: clamp(20px, 2.1vw, 26px);
   color: var(--tg-gold-light);
   margin: 0 0 12px;
-  letter-spacing: 0.02em;
-  text-shadow: 0 0 22px rgba(var(--tg-rgb-neon), 0.22);
+  letter-spacing: 0.03em;
+  line-height: 1.28;
+  text-shadow: 0 0 28px rgba(var(--tg-rgb-neon), 0.18);
 }
 
 .section-divider {
@@ -1478,7 +1486,7 @@ h3.card-title {
   max-width: 800px;
   padding: clamp(24px, 4vw, 36px) clamp(22px, 4vw, 36px);
   border-radius: var(--tg-card-radius);
-  background: var(--tg-card-bg);
+  color: var(--tg-card-text);
   border: 1px solid var(--tg-card-border);
   backdrop-filter: var(--tg-card-blur);
   -webkit-backdrop-filter: var(--tg-card-blur);
@@ -1535,7 +1543,6 @@ h3.card-title {
 }
 
 .glass-card {
-  background: var(--tg-card-bg);
   border: 1px solid var(--tg-card-border);
   border-radius: var(--tg-card-radius);
   backdrop-filter: var(--tg-card-blur);
@@ -1560,7 +1567,7 @@ h3.card-title {
 
 .glass-card p {
   margin: 0;
-  color: var(--tg-soft-white);
+  color: var(--tg-card-text);
   font-size: 16px;
   font-weight: 400;
 }
@@ -1580,7 +1587,6 @@ h3.card-title {
   align-items: start;
   padding: clamp(22px, 3.5vw, 30px) clamp(22px, 3.5vw, 32px);
   border-radius: var(--tg-card-radius);
-  background: var(--tg-card-bg);
   border: 1px solid var(--tg-card-border);
   backdrop-filter: var(--tg-card-blur);
   -webkit-backdrop-filter: var(--tg-card-blur);
@@ -1602,7 +1608,7 @@ h3.card-title {
 
 .process-num {
   font-family: var(--font-display);
-  font-weight: 700;
+  font-weight: 600;
   font-size: clamp(56px, 10vw, 96px);
   line-height: 1;
   background: var(--tg-gold-gradient);
@@ -1613,18 +1619,19 @@ h3.card-title {
 }
 
 .process-body h3 {
-  font-family: var(--font-heading-card);
+  font-family: var(--font-display);
   font-weight: 600;
-  font-size: clamp(20px, 2.2vw, 24px);
+  font-size: clamp(20px, 2.2vw, 26px);
   color: var(--tg-gold-light);
   margin: 0 0 10px;
-  letter-spacing: 0.02em;
-  text-shadow: 0 0 18px rgba(var(--tg-rgb-neon), 0.18);
+  letter-spacing: 0.03em;
+  line-height: 1.28;
+  text-shadow: 0 0 22px rgba(var(--tg-rgb-neon), 0.18);
 }
 
 .process-body p {
   margin: 0;
-  color: var(--tg-soft-white);
+  color: var(--tg-card-text);
   font-size: 17px;
   font-weight: 400;
 }
@@ -1645,7 +1652,6 @@ h3.card-title {
 .project-card {
   border-radius: var(--tg-card-radius);
   overflow: hidden;
-  background: var(--tg-card-bg);
   border: 1px solid var(--tg-card-border);
   backdrop-filter: var(--tg-card-blur);
   -webkit-backdrop-filter: var(--tg-card-blur);
@@ -1701,7 +1707,7 @@ h3.card-title {
 
 .project-body p {
   margin: 0 0 16px;
-  color: var(--tg-soft-white);
+  color: var(--tg-card-text);
   font-size: 16px;
 }
 
@@ -1718,12 +1724,7 @@ h3.card-title {
   padding: 6px 14px;
   border-radius: 999px;
   border: 1px solid rgba(var(--tg-rgb-neon), 0.35);
-  color: var(--tg-soft-white);
-  background: linear-gradient(
-    145deg,
-    rgba(117, 7, 160, 0.2) 0%,
-    rgba(63, 12, 121, 0.28) 100%
-  );
+  color: var(--tg-card-text);
   backdrop-filter: var(--tg-card-blur);
   -webkit-backdrop-filter: var(--tg-card-blur);
   transition: border-color 0.25s ease, color 0.25s ease, box-shadow 0.25s ease;
@@ -1741,7 +1742,7 @@ h3.card-title {
   max-width: 780px;
   padding: clamp(24px, 4vw, 36px) clamp(22px, 4vw, 36px);
   border-radius: var(--tg-card-radius);
-  background: var(--tg-card-bg);
+  color: var(--tg-card-text);
   border: 1px solid var(--tg-card-border);
   backdrop-filter: var(--tg-card-blur);
   -webkit-backdrop-filter: var(--tg-card-blur);
@@ -1791,10 +1792,9 @@ h3.card-title {
   padding: 8px 20px;
   border-radius: 24px;
   border: 1px solid rgba(var(--tg-rgb-neon), 0.38);
-  background: var(--tg-card-bg);
   backdrop-filter: var(--tg-card-blur);
   -webkit-backdrop-filter: var(--tg-card-blur);
-  color: var(--tg-soft-white);
+  color: var(--tg-card-text);
   box-shadow: var(--tg-card-inset);
   transition: border-color 0.25s ease, color 0.25s ease, box-shadow 0.25s ease;
 }
@@ -1809,12 +1809,11 @@ h3.card-title {
   font-size: 16px;
   font-weight: 300;
   font-style: italic;
-  color: var(--tg-soft-white);
+  color: var(--tg-card-text);
   max-width: 720px;
   margin-top: 8px;
   padding: 22px 26px;
   border-radius: var(--tg-card-radius);
-  background: var(--tg-card-bg);
   border: 1px solid var(--tg-card-border);
   backdrop-filter: var(--tg-card-blur);
   -webkit-backdrop-filter: var(--tg-card-blur);
@@ -1832,10 +1831,9 @@ h3.card-title {
   padding: 24px 28px 24px 24px;
   margin: 0;
   font-size: 18px;
-  color: var(--tg-white);
+  color: var(--tg-card-text);
   max-width: 800px;
   border-radius: var(--tg-card-radius);
-  background: var(--tg-card-bg);
   border: 1px solid var(--tg-card-border);
   backdrop-filter: var(--tg-card-blur);
   -webkit-backdrop-filter: var(--tg-card-blur);
@@ -1869,7 +1867,6 @@ h3.card-title {
   z-index: 1;
   padding: clamp(32px, 5vw, 48px) clamp(24px, 4vw, 40px);
   border-radius: var(--tg-card-radius);
-  background: var(--tg-card-bg);
   border: 1px solid var(--tg-card-border);
   backdrop-filter: var(--tg-card-blur);
   -webkit-backdrop-filter: var(--tg-card-blur);
@@ -1879,9 +1876,10 @@ h3.card-title {
 .quote-block blockquote {
   margin: 0;
   font-family: var(--font-display);
-  font-weight: 700;
+  font-weight: 600;
   font-size: clamp(26px, 4vw, 42px);
   line-height: 1.35;
+  letter-spacing: 0.02em;
   background: var(--tg-gold-gradient);
   background-size: 200% auto;
   -webkit-background-clip: text;
@@ -1907,7 +1905,7 @@ h3.card-title {
   margin: 0 auto;
   padding: clamp(36px, 6vw, 52px) clamp(28px, 5vw, 44px);
   border-radius: var(--tg-card-radius);
-  background: var(--tg-card-bg);
+  color: var(--tg-card-text);
   border: 1px solid var(--tg-card-border);
   backdrop-filter: var(--tg-card-blur);
   -webkit-backdrop-filter: var(--tg-card-blur);
@@ -1938,11 +1936,12 @@ h3.card-title {
 .site-footer {
   background: linear-gradient(
     180deg,
-    rgba(117, 7, 160, 0.12) 0%,
-    var(--footer-bg) 28%
+    rgba(117, 7, 160, 0.06) 0%,
+    rgba(136, 12, 126, 0.42) 40%,
+    rgba(8, 2, 22, 0.55) 100%
   );
   padding: 64px 0 32px;
-  border-top: 1px solid rgba(var(--tg-rgb-neon), 0.28);
+  border-top: 1px solid rgba(var(--tg-rgb-neon), 0.22);
   box-shadow: inset 0 1px 0 rgba(var(--tg-rgb-gold-classic), 0.08);
 }
 
