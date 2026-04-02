@@ -11,7 +11,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Inter:wght@300;400;600&family=Montserrat:wght@600;700&family=Playfair+Display:wght@700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Great+Vibes&family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700;900&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
@@ -73,6 +73,13 @@
           <div class="hero-actions reveal">
             <a href="#projects" class="btn btn-primary">Посмотреть проекты</a>
             <a href="#cta" class="btn btn-secondary">Обсудить задачу</a>
+            <a
+              href="https://art-eko.wfolio.pro/me"
+              class="btn btn-accent"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Портфолио онлайн</a
+            >
           </div>
           <p class="hero-motto reveal">
             Мой принцип. Мой ритм. Мой путь.
@@ -505,6 +512,18 @@
           <a href="tel:+79260230305"
             ><span class="ico" aria-hidden="true">☎</span> +7 926 023 03 05</a
           >
+          <a
+            href="https://wa.me/79260230305"
+            target="_blank"
+            rel="noopener noreferrer"
+            ><span class="ico" aria-hidden="true">◇</span> WhatsApp: +7 926 023 03 05</a
+          >
+          <a
+            href="https://art-eko.wfolio.pro/me"
+            target="_blank"
+            rel="noopener noreferrer"
+            ><span class="ico" aria-hidden="true">◇</span> Портфолио: art-eko.wfolio.pro/me</a
+          >
         </div>
         <div class="footer-line" aria-hidden="true"></div>
         <p class="copyright">
@@ -564,65 +583,66 @@
 
         /* Hero particles */
         var canvas = document.getElementById("particles");
-        if (!canvas || !canvas.getContext) return;
-        var ctx = canvas.getContext("2d");
-        var particles = [];
-        var w, h;
+        var ctx = canvas && canvas.getContext ? canvas.getContext("2d") : null;
+        if (canvas && ctx) {
+          var particles = [];
+          var w, h;
 
-        function resize() {
-          var hero = canvas.closest(".hero");
-          w = hero.offsetWidth;
-          h = hero.offsetHeight;
-          canvas.width = w * devicePixelRatio;
-          canvas.height = h * devicePixelRatio;
-          ctx.setTransform(devicePixelRatio, 0, 0, devicePixelRatio, 0, 0);
-        }
-
-        function initParticles() {
-          particles = [];
-          var n = Math.min(80, Math.floor((w * h) / 18000));
-          for (var i = 0; i < n; i++) {
-            particles.push({
-              x: Math.random() * w,
-              y: Math.random() * h,
-              r: Math.random() * 2 + 0.5,
-              vx: (Math.random() - 0.5) * 0.35,
-              vy: (Math.random() - 0.5) * 0.35,
-              a: Math.random() * 0.5 + 0.2,
-            });
+          function resize() {
+            var hero = canvas.closest(".hero");
+            w = hero.offsetWidth;
+            h = hero.offsetHeight;
+            canvas.width = w * devicePixelRatio;
+            canvas.height = h * devicePixelRatio;
+            ctx.setTransform(devicePixelRatio, 0, 0, devicePixelRatio, 0, 0);
           }
-        }
 
-        var t = 0;
-        function tick() {
-          t += 0.016;
-          ctx.clearRect(0, 0, w, h);
-          for (var i = 0; i < particles.length; i++) {
-            var p = particles[i];
-            p.x += p.vx + Math.sin(t + i) * 0.08;
-            p.y += p.vy + Math.cos(t * 0.7 + i) * 0.05;
-            if (p.x < 0) p.x = w;
-            if (p.x > w) p.x = 0;
-            if (p.y < 0) p.y = h;
-            if (p.y > h) p.y = 0;
-            var g = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.r * 3);
-            g.addColorStop(0, "rgba(245,215,122," + p.a + ")");
-            g.addColorStop(1, "rgba(212,168,67,0)");
-            ctx.fillStyle = g;
-            ctx.beginPath();
-            ctx.arc(p.x, p.y, p.r * 3, 0, Math.PI * 2);
-            ctx.fill();
+          function initParticles() {
+            particles = [];
+            var n = Math.min(80, Math.floor((w * h) / 18000));
+            for (var i = 0; i < n; i++) {
+              particles.push({
+                x: Math.random() * w,
+                y: Math.random() * h,
+                r: Math.random() * 2 + 0.5,
+                vx: (Math.random() - 0.5) * 0.35,
+                vy: (Math.random() - 0.5) * 0.35,
+                a: Math.random() * 0.5 + 0.2,
+              });
+            }
           }
-          requestAnimationFrame(tick);
-        }
 
-        window.addEventListener("resize", function () {
+          var t = 0;
+          function tick() {
+            t += 0.016;
+            ctx.clearRect(0, 0, w, h);
+            for (var i = 0; i < particles.length; i++) {
+              var p = particles[i];
+              p.x += p.vx + Math.sin(t + i) * 0.08;
+              p.y += p.vy + Math.cos(t * 0.7 + i) * 0.05;
+              if (p.x < 0) p.x = w;
+              if (p.x > w) p.x = 0;
+              if (p.y < 0) p.y = h;
+              if (p.y > h) p.y = 0;
+              var g = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.r * 3);
+              g.addColorStop(0, "rgba(245,215,122," + p.a + ")");
+              g.addColorStop(1, "rgba(212,168,67,0)");
+              ctx.fillStyle = g;
+              ctx.beginPath();
+              ctx.arc(p.x, p.y, p.r * 3, 0, Math.PI * 2);
+              ctx.fill();
+            }
+            requestAnimationFrame(tick);
+          }
+
+          window.addEventListener("resize", function () {
+            resize();
+            initParticles();
+          });
           resize();
           initParticles();
-        });
-        resize();
-        initParticles();
-        requestAnimationFrame(tick);
+          requestAnimationFrame(tick);
+        }
       })();
     </script>
   </body>
