@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tanya Gaiduk · Vibe Coder · Арт Студия «Тонкая Грань»</title>
+    <meta
+      name="description"
+      content="Сайты, интерфейсы и digital-проекты: вайб, стиль и система. Tanya Gaiduk — вайб-кодинг и искусство технологий."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Inter:wght@300;400;600&family=Montserrat:wght@600;700&family=Playfair+Display:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header" id="header">
+      <div class="header-inner">
+        <a href="#hero" class="brand-link">
+          <span class="logo-tg" aria-hidden="true">TG</span>
+          <span class="brand-name">Tanya Gaiduk</span>
+        </a>
+        <nav class="nav-desktop" aria-label="Основная навигация">
+          <a href="#about">Обо мне</a>
+          <a href="#services">Что я делаю</a>
+          <a href="#projects">Проекты</a>
+          <a href="#contacts">Контакты</a>
+          <a href="#cta" class="btn btn-primary nav-cta">Обсудить задачу</a>
+        </nav>
+        <button
+          type="button"
+          class="burger"
+          id="burger"
+          aria-label="Открыть меню"
+          aria-expanded="false"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+      <nav class="nav-mobile" id="navMobile" aria-label="Мобильное меню">
+        <a href="#about">Обо мне</a>
+        <a href="#services">Что я делаю</a>
+        <a href="#projects">Проекты</a>
+        <a href="#contacts">Контакты</a>
+        <a href="#cta" class="btn btn-primary">Обсудить задачу</a>
+      </nav>
+    </header>
+
+    <main>
+      <!-- БЛОК 1 — Hero -->
+      <section class="hero" id="hero">
+        <div class="hero-canvas-wrap" aria-hidden="true">
+          <canvas id="particles"></canvas>
+        </div>
+        <div class="container">
+          <p class="label-upper reveal">
+            TANYA GAIDUK · VIBE CODER · WEB &amp; AI EXPERIENCES
+          </p>
+          <p class="hero-logo reveal">TG</p>
+          <h1 class="reveal">
+            Я делаю сайты, интерфейсы и digital-проекты, которые выглядят как
+            вайб, а работают как система
+          </h1>
+          <p class="hero-lead reveal">
+            Не просто «что-то сверстать», а собрать ощущение, стиль, логику и
+            подачу так, чтобы проект хотелось открыть, листать и запомнить.
+          </p>
+          <div class="hero-actions reveal">
+            <a href="#projects" class="btn btn-primary">Посмотреть проекты</a>
+            <a href="#cta" class="btn btn-secondary">Обсудить задачу</a>
+          </div>
+          <p class="hero-motto reveal">
+            Мой принцип. Мой ритм. Мой путь.
+          </p>
+        </div>
+        <div class="section-divider" aria-hidden="true">
+          <span></span><span class="star">✦</span><span></span>
+        </div>
+      </section>
+
+      <!-- БЛОК 2 — Обо мне -->
+      <section class="section-glow-right" id="about">
+        <div class="container">
+          <h2 class="section-title reveal">
+            Я не просто пишу код — я собираю впечатление
+          </h2>
+          <div class="about-text reveal">
+            <p>
+              Я работаю на стыке
+              <span class="accent-gold">кода</span>,
+              <span class="accent-magenta">визуала</span>, UX и AI-инструментов.
+            </p>
+            <p>
+              Для меня сайт — это не набор блоков. Это ощущение от проекта,
+              ритм, подача, структура и то, как человек чувствует себя внутри
+              интерфейса.
+            </p>
+            <p><strong class="accent-gold">Я делаю:</strong></p>
+            <ul class="do-list">
+              <li>лендинги</li>
+              <li>портфолио</li>
+              <li>промо-страницы</li>
+              <li>интерфейсы</li>
+              <li>спецпроекты</li>
+              <li>digital-концепты</li>
+              <li>AI-first сайты и продукты</li>
+            </ul>
+            <p>
+              Мой подход — сделать
+              <span class="accent-gold">быстро</span>,
+              <span class="accent-magenta">красиво</span> и не бездумно. Чтобы
+              проект не выглядел как очередной шаблон, собранный без вкуса и
+              идеи.
+            </p>
+          </div>
+        </div>
+        <div class="section-divider" aria-hidden="true">
+          <span></span><span class="star">✦</span><span></span>
+        </div>
+      </section>
+
+      <!-- БЛОК 3 — Что я делаю -->
+      <section class="section-glow-magenta" id="services">
+        <div class="container">
+          <h2 class="section-title reveal">Что я делаю</h2>
+          <div class="cards-grid">
+            <article class="glass-card reveal">
+              <span class="card-icon">✦</span>
+              <h3 class="card-title">Лендинги</h3>
+              <p>
+                Сайты, которые не просто «есть», а собирают внимание, держат
+                ритм и ведут человека по смыслу.
+              </p>
+            </article>
+            <article class="glass-card reveal">
+              <span class="card-icon">✦</span>
+              <h3 class="card-title">Портфолио и личные сайты</h3>
+              <p>
+                Страницы, которые показывают не только работы, но и стиль,
+                характер и уровень.
+              </p>
+            </article>
+            <article class="glass-card reveal">
+              <span class="card-icon">✦</span>
+              <h3 class="card-title">Визуальные концепты</h3>
+              <p>
+                Когда нужен не просто сайт, а ощущение: атмосфера, характер,
+                настроение, подача.
+              </p>
+            </article>
+            <article class="glass-card reveal">
+              <span class="card-icon">✦</span>
+              <h3 class="card-title">AI Web</h3>
+              <p>
+                Использую нейросети как инструмент ускорения и усиления идей, а
+                не как замену мышлению.
+              </p>
+            </article>
+            <article class="glass-card reveal">
+              <span class="card-icon">✦</span>
+              <h3 class="card-title">UX и структура</h3>
+              <p>
+                Продумываю, как человек читает, куда смотрит, где теряется и где
+                принимает решение.
+              </p>
+            </article>
+            <article class="glass-card reveal">
+              <span class="card-icon">✦</span>
+              <h3 class="card-title">Быстрый запуск</h3>
+              <p>
+                Могу собрать сильную первую версию быстро, без месяцев
+                бесконечных согласований.
+              </p>
+            </article>
+          </div>
+        </div>
+        <div class="section-divider" aria-hidden="true">
+          <span></span><span class="star">✦</span><span></span>
+        </div>
+      </section>
+
+      <!-- БЛОК 4 — Как я работаю -->
+      <section class="section-vertical" id="process">
+        <div class="container">
+          <h2 class="section-title reveal">Как я работаю</h2>
+          <div class="process-list">
+            <div class="process-item reveal">
+              <div class="process-num" aria-hidden="true">01</div>
+              <div class="process-body">
+                <h3>Сначала вайб</h3>
+                <p>
+                  Я смотрю не только на задачу, но и на ощущение, которое должен
+                  передавать проект. Какой он на вкус, на цвет, на ритм. Это
+                  определяет всё остальное.
+                </p>
+              </div>
+            </div>
+            <div class="process-item reveal">
+              <div class="process-num" aria-hidden="true">02</div>
+              <div class="process-body">
+                <h3>Потом структура</h3>
+                <p>
+                  Красивый сайт без логики — это просто красивая обёртка. Поэтому
+                  я собираю смысл, сценарий и путь пользователя. Каждый блок — на
+                  своём месте, каждый экран — с задачей.
+                </p>
+              </div>
+            </div>
+            <div class="process-item reveal">
+              <div class="process-num" aria-hidden="true">03</div>
+              <div class="process-body">
+                <h3>Потом реализация</h3>
+                <p>
+                  Когда есть стиль и логика, проект собирается быстрее, точнее и
+                  выглядит сильно. Без бесконечных итераций и потерянного времени.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="section-divider" aria-hidden="true">
+          <span></span><span class="star">✦</span><span></span>
+        </div>
+      </section>
+
+      <!-- БЛОК 5 — Проекты -->
+      <section class="section-glow-corners" id="projects">
+        <div class="container">
+          <h2 class="section-title reveal">Избранные проекты</h2>
+          <div class="projects-grid">
+            <article class="project-card reveal">
+              <div class="project-thumb">
+                <div class="project-thumb-inner">Preview</div>
+              </div>
+              <div class="project-body">
+                <h3 class="card-title">AI Landing Experience</h3>
+                <p>
+                  Лендинг для digital-продукта с акцентом на атмосферу, скорость
+                  восприятия и современный визуал.
+                </p>
+                <div class="badges">
+                  <span class="badge">структура</span>
+                  <span class="badge">тексты</span>
+                  <span class="badge">дизайн-концепция</span>
+                  <span class="badge">сборка</span>
+                </div>
+              </div>
+            </article>
+            <article class="project-card reveal">
+              <div class="project-thumb">
+                <div class="project-thumb-inner">Preview</div>
+              </div>
+              <div class="project-body">
+                <h3 class="card-title">Portfolio for Creative Expert</h3>
+                <p>
+                  Личный сайт-портфолио, который показывает не только кейсы, но и
+                  стиль человека.
+                </p>
+                <div class="badges">
+                  <span class="badge">позиционирование</span>
+                  <span class="badge">подача</span>
+                  <span class="badge">визуальный ритм</span>
+                  <span class="badge">упаковка работ</span>
+                </div>
+              </div>
+            </article>
+            <article class="project-card reveal">
+              <div class="project-thumb">
+                <div class="project-thumb-inner">Preview</div>
+              </div>
+              <div class="project-body">
+                <h3 class="card-title">Bot &amp; Funnel Page</h3>
+                <p>
+                  Промо-страница под воронку и digital-продукт с акцентом на
+                  конверсию и лёгкость восприятия.
+                </p>
+                <div class="badges">
+                  <span class="badge">логика блоков</span>
+                  <span class="badge">тексты</span>
+                  <span class="badge">CTA</span>
+                  <span class="badge">визуальный каркас</span>
+                </div>
+              </div>
+            </article>
+            <article class="project-card reveal">
+              <div class="project-thumb">
+                <div class="project-thumb-inner">Preview</div>
+              </div>
+              <div class="project-body">
+                <h3 class="card-title">Concept Site for AI Creator</h3>
+                <p>
+                  Сайт с упором на трендовую подачу, сильный первый экран и
+                  ощущение «это хочется переслать».
+                </p>
+                <div class="badges">
+                  <span class="badge">creative direction</span>
+                  <span class="badge">структура</span>
+                  <span class="badge">визуальная концепция</span>
+                </div>
+              </div>
+            </article>
+            <article class="project-card reveal">
+              <div class="project-thumb">
+                <div class="project-thumb-inner">Preview</div>
+              </div>
+              <div class="project-body">
+                <h3 class="card-title">
+                  Арт Студия «Тонкая Грань» — Главный сайт
+                </h3>
+                <p>
+                  Мультистраничный сайт-портфолио для собственного бренда с 6
+                  направлениями AI-продакшна.
+                </p>
+                <div class="badges">
+                  <span class="badge">архитектура</span>
+                  <span class="badge">дизайн-система</span>
+                  <span class="badge">все тексты</span>
+                  <span class="badge">вайб-кодинг</span>
+                  <span class="badge">полная сборка</span>
+                </div>
+              </div>
+            </article>
+            <article class="project-card reveal">
+              <div class="project-thumb">
+                <div class="project-thumb-inner">Preview</div>
+              </div>
+              <div class="project-body">
+                <h3 class="card-title">AI Expert Landing</h3>
+                <p>
+                  Промо-лендинг для AI-эксперта с акцентом на личный бренд,
+                  нейровизуалы и воронку в Telegram.
+                </p>
+                <div class="badges">
+                  <span class="badge">концепция</span>
+                  <span class="badge">структура</span>
+                  <span class="badge">AI-визуалы</span>
+                  <span class="badge">CTA-система</span>
+                  <span class="badge">сборка</span>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+        <div class="section-divider" aria-hidden="true">
+          <span></span><span class="star">✦</span><span></span>
+        </div>
+      </section>
+
+      <!-- БЛОК 6 — Почему со мной -->
+      <section class="section-deep" id="why">
+        <div class="container">
+          <h2 class="section-title reveal">
+            Почему ко мне идут не просто за кодом
+          </h2>
+          <div class="why-text reveal">
+            <p>
+              Потому что я умею видеть проект
+              <span class="accent-gold">целиком</span>.
+            </p>
+            <p>Не только:</p>
+            <ul>
+              <li>как это собрать</li>
+            </ul>
+            <p>Но и:</p>
+            <ul>
+              <li>как это подать</li>
+              <li>как это будет восприниматься</li>
+              <li>где человек зацепится взглядом</li>
+              <li>что запомнит</li>
+              <li>почему это будет выглядеть дороже, чем стоит</li>
+            </ul>
+            <p class="why-closing">
+              Я соединяю:
+              <span class="accent-magenta">эстетику</span> +
+              <span class="accent-gold">структуру</span> +
+              <span class="accent-magenta">digital-мышление</span> +
+              <span class="accent-gold">скорость</span>
+            </p>
+          </div>
+        </div>
+        <div class="section-divider" aria-hidden="true">
+          <span></span><span class="star">✦</span><span></span>
+        </div>
+      </section>
+
+      <!-- БЛОК 7 — Инструменты -->
+      <section id="stack">
+        <div class="container">
+          <h2 class="section-title reveal">Инструменты</h2>
+          <div class="stack-badges reveal">
+            <span class="stack-badge">ChatGPT</span>
+            <span class="stack-badge">Claude</span>
+            <span class="stack-badge">Cursor</span>
+            <span class="stack-badge">HTML / CSS / JS</span>
+            <span class="stack-badge">React</span>
+            <span class="stack-badge">Tailwind</span>
+            <span class="stack-badge">Framer Motion</span>
+            <span class="stack-badge">Figma</span>
+            <span class="stack-badge">Tilda</span>
+            <span class="stack-badge">Webflow</span>
+            <span class="stack-badge">Custom Code</span>
+            <span class="stack-badge">Telegram Bots</span>
+            <span class="stack-badge">AI Tools</span>
+            <span class="stack-badge">Midjourney</span>
+          </div>
+          <p class="stack-note reveal">
+            Но если честно — главный инструмент не стек, а
+            <span class="gold">вкус</span>,
+            <span class="gold">насмотренность</span> и умение собирать
+            <span class="gold">цельное впечатление</span>.
+          </p>
+        </div>
+        <div class="section-divider" aria-hidden="true">
+          <span></span><span class="star">✦</span><span></span>
+        </div>
+      </section>
+
+      <!-- БЛОК 8 — Для кого -->
+      <section class="section-glow-right" id="audience">
+        <div class="container">
+          <h2 class="section-title reveal">Кому подойдёт моя работа</h2>
+          <ul class="audience-list reveal">
+            <li>экспертам, которым нужна сильная упаковка</li>
+            <li>креаторам и AI-специалистам</li>
+            <li>digital-проектам и стартапам</li>
+            <li>AI-продуктам, которым нужен сайт на уровне</li>
+            <li>студиям и агентствам</li>
+            <li>тем, кому нужен сайт <span class="magenta">с характером</span></li>
+            <li>тем, кто не хочет шаблонную безликую страницу</li>
+          </ul>
+        </div>
+        <div class="section-divider" aria-hidden="true">
+          <span></span><span class="star">✦</span><span></span>
+        </div>
+      </section>
+
+      <!-- БЛОК 9 — Цитата -->
+      <section class="section-quote" id="manifesto">
+        <div class="container">
+          <div class="quote-block reveal">
+            <blockquote>
+              «Хороший сайт — это не когда «нормально сверстано». Это когда у
+              проекта появляется энергия, форма и ощущение, что он живой.»
+            </blockquote>
+            <p class="quote-author">
+              — Tanya Gaiduk · Искусство Технологий
+            </p>
+          </div>
+        </div>
+        <div class="section-divider" aria-hidden="true">
+          <span></span><span class="star">✦</span><span></span>
+        </div>
+      </section>
+
+      <!-- БЛОК 10 — Финальный CTA -->
+      <section class="section-cta-final" id="cta">
+        <div class="container">
+          <div class="cta-inner reveal">
+            <h2 class="section-title">
+              Если тебе нужен сайт, который выглядит сильно и ощущается
+              современно — давай соберём
+            </h2>
+            <p>
+              Могу помочь с концепцией, структурой, упаковкой и реализацией. От
+              первого вайба до готовой страницы.
+            </p>
+            <p class="hero-motto">Мой принцип. Мой ритм. Мой путь.</p>
+            <div class="cta-actions">
+              <a href="https://t.me/artsonga" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Написать мне</a>
+              <a href="#projects" class="btn btn-secondary">Посмотреть работы</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- БЛОК 11 — Footer -->
+    <footer class="site-footer" id="contacts">
+      <div class="container">
+        <div class="footer-brand">
+          <span class="logo-tg" aria-hidden="true">TG</span>
+          <span class="brand-name">Tanya Gaiduk</span>
+          <p class="footer-tagline">
+            Арт Студия «Тонкая Грань» · Искусство Технологий · Вайб-Кодинг
+          </p>
+        </div>
+        <div class="footer-contacts">
+          <a href="https://t.me/artsonga" target="_blank" rel="noopener noreferrer"
+            ><span class="ico" aria-hidden="true">✈</span> Telegram: t.me/artsonga</a
+          >
+          <a href="mailto:art-eko@yandex.ru"
+            ><span class="ico" aria-hidden="true">✉</span> Email: art-eko@yandex.ru</a
+          >
+          <a href="https://vk.com/id40612724" target="_blank" rel="noopener noreferrer"
+            ><span class="ico" aria-hidden="true">◉</span> VK: vk.com/id40612724</a
+          >
+          <a href="https://max.ru/id651100512203_biz" target="_blank" rel="noopener noreferrer"
+            ><span class="ico" aria-hidden="true">◎</span> МАКС: max.ru/id651100512203_biz</a
+          >
+          <a href="tel:+79260230305"
+            ><span class="ico" aria-hidden="true">☎</span> +7 926 023 03 05</a
+          >
+        </div>
+        <div class="footer-line" aria-hidden="true"></div>
+        <p class="copyright">
+          © 2026 Tanya Gaiduk · Арт Студия «Тонкая Грань» · Искусство Технологий
+          <span class="motto-small">Мой принцип. Мой ритм. Мой путь.</span>
+        </p>
+      </div>
+    </footer>
+
+    <script>
+      (function () {
+        var header = document.getElementById("header");
+        var burger = document.getElementById("burger");
+        var navMobile = document.getElementById("navMobile");
+
+        function setOpen(open) {
+          header.classList.toggle("is-open", open);
+          burger.setAttribute("aria-expanded", open ? "true" : "false");
+          burger.setAttribute(
+            "aria-label",
+            open ? "Закрыть меню" : "Открыть меню"
+          );
+        }
+
+        burger.addEventListener("click", function () {
+          setOpen(!header.classList.contains("is-open"));
+        });
+
+        navMobile.querySelectorAll("a").forEach(function (link) {
+          link.addEventListener("click", function () {
+            setOpen(false);
+          });
+        });
+
+        /* Scroll reveal */
+        var reveals = document.querySelectorAll(".reveal");
+        if ("IntersectionObserver" in window) {
+          var obs = new IntersectionObserver(
+            function (entries) {
+              entries.forEach(function (e) {
+                if (e.isIntersecting) {
+                  e.target.classList.add("is-visible");
+                  obs.unobserve(e.target);
+                }
+              });
+            },
+            { root: null, rootMargin: "0px 0px -8% 0px", threshold: 0.08 }
+          );
+          reveals.forEach(function (el) {
+            obs.observe(el);
+          });
+        } else {
+          reveals.forEach(function (el) {
+            el.classList.add("is-visible");
+          });
+        }
+
+        /* Hero particles */
+        var canvas = document.getElementById("particles");
+        if (!canvas || !canvas.getContext) return;
+        var ctx = canvas.getContext("2d");
+        var particles = [];
+        var w, h;
+
+        function resize() {
+          var hero = canvas.closest(".hero");
+          w = hero.offsetWidth;
+          h = hero.offsetHeight;
+          canvas.width = w * devicePixelRatio;
+          canvas.height = h * devicePixelRatio;
+          ctx.setTransform(devicePixelRatio, 0, 0, devicePixelRatio, 0, 0);
+        }
+
+        function initParticles() {
+          particles = [];
+          var n = Math.min(80, Math.floor((w * h) / 18000));
+          for (var i = 0; i < n; i++) {
+            particles.push({
+              x: Math.random() * w,
+              y: Math.random() * h,
+              r: Math.random() * 2 + 0.5,
+              vx: (Math.random() - 0.5) * 0.35,
+              vy: (Math.random() - 0.5) * 0.35,
+              a: Math.random() * 0.5 + 0.2,
+            });
+          }
+        }
+
+        var t = 0;
+        function tick() {
+          t += 0.016;
+          ctx.clearRect(0, 0, w, h);
+          for (var i = 0; i < particles.length; i++) {
+            var p = particles[i];
+            p.x += p.vx + Math.sin(t + i) * 0.08;
+            p.y += p.vy + Math.cos(t * 0.7 + i) * 0.05;
+            if (p.x < 0) p.x = w;
+            if (p.x > w) p.x = 0;
+            if (p.y < 0) p.y = h;
+            if (p.y > h) p.y = 0;
+            var g = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.r * 3);
+            g.addColorStop(0, "rgba(245,215,122," + p.a + ")");
+            g.addColorStop(1, "rgba(212,168,67,0)");
+            ctx.fillStyle = g;
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, p.r * 3, 0, Math.PI * 2);
+            ctx.fill();
+          }
+          requestAnimationFrame(tick);
+        }
+
+        window.addEventListener("resize", function () {
+          resize();
+          initParticles();
+        });
+        resize();
+        initParticles();
+        requestAnimationFrame(tick);
+      })();
+    </script>
+  </body>
+</html>
