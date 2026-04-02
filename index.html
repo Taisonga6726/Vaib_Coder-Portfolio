@@ -17,6 +17,28 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
+    <div
+      id="silk-bg"
+      class="silk-bg-layer"
+      aria-hidden="true"
+      data-silk-speed="5.8"
+      data-silk-scale="1.1"
+      data-silk-noise="0.4"
+      data-silk-rotation="1.3"
+    ></div>
+    <!-- Фон 1:1 как в референсе — зацикленный WebM (положите файл в images/) -->
+    <div class="aurora-video-wrap" aria-hidden="true">
+      <video
+        id="aurora-video"
+        class="aurora-video"
+        src="images/light-pillar-1775160048329.webm"
+        autoplay
+        muted
+        loop
+        playsinline
+        preload="auto"
+      ></video>
+    </div>
     <header class="site-header" id="header">
       <div class="header-inner">
         <a href="#hero" class="brand-link">
@@ -61,7 +83,7 @@
           <div class="hero-grid">
             <div class="hero-copy__top">
               <p class="label-upper reveal">
-                ТАТЬЯНА ГАЙДУК · VIBE CODER · WEB &amp; AI EXPERIENCES
+                ТАНЯ ГАЙДУК · VIBE CODER · WEB &amp; AI EXPERIENCES
               </p>
               <p class="hero-logo reveal">TG</p>
               <h1 class="reveal">
@@ -669,6 +691,23 @@
           resize();
           initParticles();
           requestAnimationFrame(tick);
+        }
+      })();
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.167.1/build/three.min.js"></script>
+    <script src="silk-background.js"></script>
+    <script>
+      (function () {
+        var v = document.getElementById("aurora-video");
+        if (!v) return;
+        function markOk() {
+          document.body.classList.add("has-aurora-video");
+        }
+        v.addEventListener("loadeddata", markOk);
+        v.addEventListener("canplay", markOk);
+        var p = v.play();
+        if (p && typeof p.then === "function") {
+          p.catch(function () {});
         }
       })();
     </script>
