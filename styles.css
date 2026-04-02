@@ -94,20 +94,21 @@
   --tg-card-text: #f4f6fd;
   --tg-card-text-soft: #e4e9f8;
 
-  /* BUTTONS */
+  /* Кнопки — единый стиль: слева глубокий пурпур → справа лайм (как референс) */
   --tg-btn-primary-bg: linear-gradient(
-    135deg,
-    #a3099bc0 0%,
-    #d6e50b 38%,
-    #e5ff00 62%,
-    #d6e50b 100%
+    90deg,
+    #520868 0%,
+    #75109a 24%,
+    #9a1488 44%,
+    #7a9a0c 58%,
+    #b4dc12 78%,
+    #e2ff4a 100%
   );
-  --tg-btn-primary-text: #050010;
-  --tg-btn-primary-glow: 0 0 22px rgba(var(--tg-rgb-gold-bright), 0.55);
-  --tg-btn-secondary-border: 1.5px solid #e5b80b;
-  --tg-btn-accent-bg: linear-gradient(135deg, #9b0a83, #7a0026);
-  --tg-btn-accent-glow: 0 0 28px rgba(var(--tg-rgb-neon), 0.45);
-  --tg-btn-radius: 8px;
+  --tg-btn-primary-text: #0a0a0a;
+  --tg-btn-primary-glow: 0 0 26px rgba(220, 255, 90, 0.5),
+    0 0 42px rgba(130, 40, 170, 0.35);
+  --tg-btn-secondary-border: 1.5px solid rgba(200, 230, 60, 0.55);
+  --tg-btn-radius: 11px;
 
   /* RGB-слои для rgba() — один источник бренда на весь сайт */
   --tg-rgb-magenta: 117, 7, 160;
@@ -322,7 +323,6 @@ a:hover {
 
 /* Полуночный шёлк: единая стеклянная поверхность для блоков и карточек */
 .about-text,
-.tariff-card,
 .glass-card,
 .process-item,
 .project-card,
@@ -471,21 +471,36 @@ a:hover {
   white-space: nowrap;
 }
 
-.btn-primary {
+/* Все основные CTA — один градиент и чёрный текст */
+.btn-primary,
+.btn-accent,
+.btn-neon {
   background: var(--tg-btn-primary-bg);
-  background-size: 200% auto;
   color: var(--tg-btn-primary-text);
+  border: none;
+  font-weight: 600;
+  box-shadow: 0 2px 14px rgba(0, 0, 0, 0.28),
+    0 0 20px rgba(120, 40, 150, 0.2);
 }
 
-.btn-primary:hover {
-  box-shadow: var(--tg-btn-primary-glow);
+.btn-primary:hover,
+.btn-accent:hover,
+.btn-neon:hover {
+  box-shadow: var(--tg-btn-primary-glow), 0 4px 18px rgba(0, 0, 0, 0.32);
   transform: translateY(-2px);
+}
+
+.btn-primary:focus-visible,
+.btn-accent:focus-visible,
+.btn-neon:focus-visible {
+  outline: 2px solid rgba(255, 255, 255, 0.92);
+  outline-offset: 3px;
 }
 
 .btn-secondary {
   background: transparent;
   border: var(--tg-btn-secondary-border);
-  color: var(--tg-gold);
+  color: var(--tg-card-text);
 }
 
 .btn-secondary:hover {
@@ -494,122 +509,6 @@ a:hover {
   border-color: transparent;
   box-shadow: var(--tg-btn-primary-glow);
   transform: translateY(-2px);
-}
-
-.btn-accent {
-  background: var(--tg-btn-accent-bg);
-  color: var(--tg-white);
-}
-
-.btn-accent:hover {
-  box-shadow: var(--tg-btn-accent-glow);
-  transform: translateY(-2px);
-}
-
-/* Вторичные CTA — без анимации, лёгкое неоновое свечение в тон сайта */
-.btn-neon {
-  position: relative;
-  border-radius: 12px !important;
-  border: 1px solid rgba(var(--tg-rgb-neon), 0.38) !important;
-  background: linear-gradient(
-    168deg,
-    rgba(14, 6, 32, 0.96) 0%,
-    rgba(8, 3, 22, 0.99) 100%
-  ) !important;
-  color: var(--tg-soft-white) !important;
-  font-weight: 600;
-  box-shadow: 0 2px 14px rgba(0, 0, 0, 0.4),
-    0 0 22px rgba(var(--tg-rgb-neon), 0.2),
-    0 0 44px rgba(var(--tg-rgb-royal), 0.12);
-  transition: box-shadow 0.3s ease, border-color 0.3s ease, background 0.3s ease;
-}
-
-.btn-neon:hover {
-  border-color: rgba(var(--tg-rgb-gold-bright), 0.42) !important;
-  background: linear-gradient(
-    168deg,
-    rgba(20, 8, 42, 0.98) 0%,
-    rgba(10, 4, 28, 1) 100%
-  ) !important;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.45),
-    0 0 28px rgba(var(--tg-rgb-neon), 0.32),
-    0 0 52px rgba(var(--tg-rgb-royal), 0.18),
-    inset 0 1px 0 rgba(255, 255, 255, 0.06);
-}
-
-.btn-neon:focus-visible {
-  outline: 2px solid rgba(var(--tg-rgb-gold-bright), 0.85);
-  outline-offset: 3px;
-}
-
-/* Тарифы */
-.tariffs-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: clamp(20px, 3vw, 28px);
-  margin-top: 28px;
-  max-width: 920px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-@media (max-width: 700px) {
-  .tariffs-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-.tariff-card {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  padding: clamp(24px, 4vw, 32px);
-  border-radius: var(--tg-card-radius);
-  border: 1px solid var(--tg-card-border);
-  backdrop-filter: var(--tg-card-blur);
-  -webkit-backdrop-filter: var(--tg-card-blur);
-  box-shadow: var(--tg-card-inset), 0 12px 40px rgba(0, 0, 0, 0.25);
-  text-align: center;
-}
-
-.tariff-card__label {
-  font-family: var(--font-ui);
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--tg-gold);
-}
-
-.tariff-card__price {
-  font-family: var(--font-display);
-  font-weight: 600;
-  font-size: clamp(1.75rem, 4vw, 2.25rem);
-  letter-spacing: 0.02em;
-  color: var(--tg-white);
-  margin: 0;
-}
-
-.tariff-card__note {
-  margin: 0;
-  font-size: 15px;
-  color: var(--tg-card-text);
-  line-height: 1.55;
-  flex-grow: 1;
-}
-
-.tariff-card .btn-neon {
-  align-self: center;
-  margin-top: 4px;
-}
-
-.caption--center {
-  text-align: center;
-}
-
-.formats-lead {
-  max-width: 640px;
-  margin: -12px auto 0;
 }
 
 .modal-neon__hint {
@@ -876,6 +775,67 @@ a:hover {
 
 .hero-intro {
   width: 100%;
+}
+
+.hero-brand-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: clamp(14px, 2.8vw, 28px);
+  margin-bottom: clamp(4px, 1vw, 10px);
+}
+
+.hero-brand-row .hero-logo {
+  margin: 0;
+  flex-shrink: 0;
+}
+
+.hero-brand-text {
+  min-width: min(100%, 200px);
+  flex: 1;
+}
+
+.hero-brand-kicker {
+  font-family: var(--font-ui);
+  font-weight: 800;
+  font-size: clamp(10px, 1.45vw, 14px);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgb(var(--tg-rgb-neon));
+  text-shadow: 0 0 18px rgba(var(--tg-rgb-neon), 0.55),
+    0 0 34px rgba(255, 100, 220, 0.18);
+  line-height: 1.25;
+  margin: 0 0 6px;
+  white-space: nowrap;
+}
+
+.hero-brand-tag {
+  font-family: var(--font-ui);
+  font-size: clamp(10px, 1.2vw, 13px);
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  color: var(--tg-card-text-soft);
+  margin: 0;
+  line-height: 1.45;
+  opacity: 0.94;
+}
+
+@media (max-width: 640px) {
+  .hero-brand-kicker {
+    white-space: normal;
+  }
+}
+
+@media (max-width: 960px) {
+  .hero-brand-row {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .hero-brand-text {
+    min-width: 0;
+  }
 }
 
 .hero-headline-row {
@@ -1164,7 +1124,7 @@ a:hover {
     filter 0.55s ease;
 }
 
-  .hero-intro:hover .hero-logo-img {
+.hero-intro:hover .hero-logo-img {
   transform: rotateX(5deg) rotateY(6deg) scale(1.04) translateZ(20px);
   filter: drop-shadow(0 20px 44px rgba(0, 0, 0, 0.6))
     drop-shadow(0 0 40px rgba(255, 240, 200, 0.75))
@@ -1185,14 +1145,15 @@ a:hover {
   }
 }
 
-.hero h1 {
+.hero h1,
+.hero .hero-name {
   font-family: var(--font-display);
   font-weight: 600;
-  font-size: clamp(1.55rem, 3.15vw, 2.45rem);
-  line-height: 1.2;
-  letter-spacing: 0.02em;
-  max-width: 38rem;
-  margin: 0 0 20px;
+  font-size: clamp(1.65rem, 3.2vw, 2.65rem);
+  line-height: 1.18;
+  letter-spacing: 0.03em;
+  max-width: min(100%, 52ch);
+  margin: 0 0 14px;
   background: var(--tg-gold-gradient);
   background-size: 200% auto;
   -webkit-background-clip: text;
@@ -1202,12 +1163,74 @@ a:hover {
   animation: tg-shimmer 3.5s ease-in-out infinite;
 }
 
+/* Typewriter: золотые 3D-буквы со свечением (заполняется скриптом) */
+.hero h1.hero-typewriter {
+  background: none;
+  background-size: auto;
+  -webkit-background-clip: unset;
+  background-clip: unset;
+  -webkit-text-fill-color: unset;
+  animation: none;
+  color: transparent;
+  min-height: 2.4em;
+}
+
+.hero-typewriter .hero-tw-char {
+  display: inline-block;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: inherit;
+  line-height: inherit;
+  letter-spacing: inherit;
+  opacity: 0;
+  transform: perspective(460px) rotateX(16deg) translateY(0.12em)
+    translateZ(-6px);
+  transition: opacity 0.24s ease, transform 0.38s cubic-bezier(0.22, 1, 0.36, 1);
+  color: #f7dc6f;
+  text-shadow: 0 1px 0 #c9a227, 0 2px 0 #9a7410, 0 3px 5px rgba(0, 0, 0, 0.5),
+    0 0 14px rgba(var(--tg-rgb-gold-bright), 0.95),
+    0 0 28px rgba(255, 210, 80, 0.55), 0 0 44px rgba(var(--tg-rgb-neon), 0.2);
+}
+
+.hero-typewriter .hero-tw-char.is-on {
+  opacity: 1;
+  transform: perspective(460px) rotateX(5deg) translateY(0) translateZ(0);
+}
+
+.hero-typewriter .hero-tw-space {
+  width: 0.35em;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-typewriter .hero-tw-char {
+    opacity: 1;
+    transform: perspective(460px) rotateX(5deg) translateY(0);
+    transition: none;
+  }
+}
+
+/* Подзаголовок-баннер: роль (как нижняя строка на макете) */
+.hero-role {
+  font-family: var(--font-display);
+  font-size: clamp(1rem, 1.35vw, 1.2rem);
+  font-weight: 500;
+  font-style: italic;
+  color: var(--tg-gold-light);
+  line-height: 1.5;
+  max-width: 36rem;
+  margin: 0 0 18px;
+  letter-spacing: 0.02em;
+  text-shadow: 0 0 28px rgba(var(--tg-rgb-gold-bright), 0.2);
+}
+
 .hero-lead {
-  font-size: clamp(17px, 1.5vw, 20px);
+  font-family: var(--font-ui);
+  font-size: clamp(16px, 1.35vw, 18px);
   font-weight: 400;
-  color: var(--tg-soft-white);
-  max-width: 640px;
-  margin: 0 0 36px;
+  color: var(--tg-card-text);
+  max-width: 38rem;
+  margin: 0 0 28px;
+  line-height: 1.65;
 }
 
 .hero-actions {
@@ -1498,7 +1521,8 @@ h3.card-title {
 }
 
 .about-text .accent-magenta {
-  color: var(--tg-magenta);
+  color: #ffb8f5;
+  text-shadow: 0 0 14px rgba(var(--tg-rgb-neon), 0.45);
 }
 
 .do-list {

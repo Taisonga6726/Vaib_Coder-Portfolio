@@ -76,7 +76,6 @@
           <a href="#about">Обо мне</a>
           <a href="#services">Что я делаю</a>
           <a href="#projects">Проекты</a>
-          <a href="#formats">Форматы</a>
           <a href="#contacts">Контакты</a>
           <a href="#cta" class="btn btn-primary nav-cta">Обсудить задачу</a>
         </nav>
@@ -96,7 +95,6 @@
         <a href="#about">Обо мне</a>
         <a href="#services">Что я делаю</a>
         <a href="#projects">Проекты</a>
-        <a href="#formats">Форматы</a>
         <a href="#contacts">Контакты</a>
         <a href="#cta" class="btn btn-primary">Обсудить задачу</a>
       </nav>
@@ -111,28 +109,38 @@
         <div class="container">
           <div class="hero-grid">
             <div class="hero-intro">
-              <p class="label-upper reveal">
-                ТАНЯ ГАЙДУК · VIBE CODER · WEB &amp; AI EXPERIENCES
-              </p>
-              <p class="hero-logo reveal">
-                <span class="hero-logo-3d">
-                  <img
-                    class="hero-logo-img"
-                    src="images/logo_bez.png"
-                    alt="TG — монограмма студии"
-                    width="480"
-                    height="300"
-                    decoding="async"
-                  />
-                </span>
-              </p>
+              <div class="hero-brand-row reveal">
+                <p class="hero-logo">
+                  <span class="hero-logo-3d">
+                    <img
+                      class="hero-logo-img"
+                      src="images/logo_bez.png"
+                      alt="TG — монограмма студии"
+                      width="480"
+                      height="300"
+                      decoding="async"
+                    />
+                  </span>
+                </p>
+                <div class="hero-brand-text">
+                  <p class="hero-brand-kicker">
+                    AI-ПРОДАКШН НОВОГО ПОКОЛЕНИЯ
+                  </p>
+                  <p class="hero-brand-tag">
+                    Vibe Coder / Portfolio / Web &amp; AI Experiences
+                  </p>
+                </div>
+              </div>
             </div>
             <div class="hero-headline-row">
               <div class="hero-headline-copy">
-                <h1 class="reveal">
-                  Я делаю сайты, интерфейсы и digital-проекты, которые выглядят
-                  как вайб, а работают как система
-                </h1>
+                <h1
+                  class="hero-name hero-typewriter"
+                  id="heroHeadline"
+                  data-line1="Я делаю сайты, интерфейсы и digital-проекты, которые выглядят как "
+                  data-line2="вайб, а работают как система"
+                  aria-label="Я делаю сайты, интерфейсы и digital-проекты, которые выглядят как вайб, а работают как система"
+                ></h1>
                 <p class="hero-lead reveal">
                   Не просто «что-то сверстать», а собрать ощущение, стиль, логику
                   и подачу так, чтобы проект хотелось открыть, листать и
@@ -560,53 +568,6 @@
         </div>
       </section>
 
-      <!-- БЛОК 9b — Форматы / тарифы (неоновые CTA) -->
-      <section class="section-glow-corners" id="formats" aria-labelledby="formats-title">
-        <div class="container">
-          <h2 class="section-title reveal" id="formats-title">
-            Форматы работы
-          </h2>
-          <p class="caption caption--center formats-lead reveal">
-            Подберём формат под задачу — от консультации до страницы под ключ.
-          </p>
-          <div class="tariffs-grid">
-            <article class="tariff-card reveal">
-              <span class="tariff-card__label">Старт</span>
-              <p class="tariff-card__price">от 25 000 ₽</p>
-              <p class="tariff-card__note">
-                Лендинг или визитка: структура, тексты, визуальный каркас и сборка.
-                Сроки и точная смета — после короткого брифа.
-              </p>
-              <button
-                type="button"
-                class="btn btn-neon"
-                data-open-contact-modal
-              >
-                Обсудить старт
-              </button>
-            </article>
-            <article class="tariff-card reveal">
-              <span class="tariff-card__label">Под ключ</span>
-              <p class="tariff-card__price">индивидуально</p>
-              <p class="tariff-card__note">
-                Сложный сайт, портфолио эксперта, концепция + реализация. Полный
-                цикл от идеи до публикации.
-              </p>
-              <button
-                type="button"
-                class="btn btn-neon"
-                data-open-contact-modal
-              >
-                Запросить смету
-              </button>
-            </article>
-          </div>
-        </div>
-        <div class="section-divider" aria-hidden="true">
-          <span></span><span class="star">✦</span><span></span>
-        </div>
-      </section>
-
       <!-- БЛОК 10 — Финальный CTA -->
       <section class="section-cta-final" id="cta">
         <div class="container">
@@ -773,6 +734,101 @@
             el.classList.add("is-visible");
           });
         }
+
+        /* Hero: typewriter — золотые 3D-буквы */
+        (function () {
+          var headline = document.getElementById("heroHeadline");
+          var line1 = headline && headline.getAttribute("data-line1");
+          var line2 = headline && headline.getAttribute("data-line2");
+          if (!headline || !line1 || !line2) return;
+
+          var reduced =
+            window.matchMedia &&
+            window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+          function run() {
+            if (headline.getAttribute("data-tw-done")) return;
+            headline.setAttribute("data-tw-done", "1");
+
+            var h = headline;
+            h.innerHTML = "";
+
+            var queue = [];
+            var i;
+            for (i = 0; i < line1.length; i++) queue.push(line1.charAt(i));
+            queue.push(null);
+            for (i = 0; i < line2.length; i++) queue.push(line2.charAt(i));
+
+            function appendChar(ch) {
+              var span = document.createElement("span");
+              span.className = "hero-tw-char";
+              span.setAttribute("aria-hidden", "true");
+              if (ch === " ") {
+                span.textContent = "\u00a0";
+                span.classList.add("hero-tw-space");
+              } else {
+                span.textContent = ch;
+              }
+              h.appendChild(span);
+              if (reduced) {
+                span.classList.add("is-on");
+              } else {
+                requestAnimationFrame(function () {
+                  span.classList.add("is-on");
+                });
+              }
+            }
+
+            if (reduced) {
+              queue.forEach(function (ch) {
+                if (ch === null) {
+                  var br = document.createElement("br");
+                  br.className = "hero-tw-br";
+                  br.setAttribute("aria-hidden", "true");
+                  h.appendChild(br);
+                } else {
+                  appendChar(ch);
+                }
+              });
+              return;
+            }
+
+            var step = 20;
+            var t = 0;
+            queue.forEach(function (ch) {
+              var delay = t;
+              setTimeout(function () {
+                if (ch === null) {
+                  var brEl = document.createElement("br");
+                  brEl.className = "hero-tw-br";
+                  brEl.setAttribute("aria-hidden", "true");
+                  h.appendChild(brEl);
+                } else {
+                  appendChar(ch);
+                }
+              }, delay);
+              t += step;
+            });
+          }
+
+          var heroSection = headline.closest(".hero");
+          if ("IntersectionObserver" in window && heroSection) {
+            var twObs = new IntersectionObserver(
+              function (entries) {
+                entries.forEach(function (e) {
+                  if (e.isIntersecting) {
+                    run();
+                    twObs.disconnect();
+                  }
+                });
+              },
+              { root: null, rootMargin: "0px", threshold: 0.08 }
+            );
+            twObs.observe(heroSection);
+          } else {
+            run();
+          }
+        })();
 
         /* Hero particles */
         var canvas = document.getElementById("particles");
