@@ -39,16 +39,44 @@
         preload="auto"
       ></video>
     </div>
+    <!-- WebGL «чернила» за курсором (порт SplashCursor, без React) -->
+    <div
+      id="splash-cursor-root"
+      class="splash-cursor-layer"
+      aria-hidden="true"
+      data-sim-resolution="128"
+      data-dye-resolution="1440"
+      data-density-dissipation="3.5"
+      data-velocity-dissipation="2"
+      data-pressure="0.1"
+      data-curl="3"
+      data-splat-radius="0.2"
+      data-splat-force="6000"
+      data-color-update-speed="10"
+      data-shading="true"
+    >
+      <canvas id="splash-cursor-canvas"></canvas>
+    </div>
     <header class="site-header" id="header">
       <div class="header-inner">
         <a href="#hero" class="brand-link">
-          <span class="logo-tg" aria-hidden="true">TG</span>
+          <span class="logo-tg-3d" aria-hidden="true">
+            <img
+              class="logo-tg logo-tg--luxury"
+              src="images/logo-tg-luxury.png"
+              alt=""
+              width="180"
+              height="112"
+              decoding="async"
+            />
+          </span>
           <span class="brand-name">Татьяна Гайдук</span>
         </a>
         <nav class="nav-desktop" aria-label="Основная навигация">
           <a href="#about">Обо мне</a>
           <a href="#services">Что я делаю</a>
           <a href="#projects">Проекты</a>
+          <a href="#formats">Форматы</a>
           <a href="#contacts">Контакты</a>
           <a href="#cta" class="btn btn-primary nav-cta">Обсудить задачу</a>
         </nav>
@@ -68,6 +96,7 @@
         <a href="#about">Обо мне</a>
         <a href="#services">Что я делаю</a>
         <a href="#projects">Проекты</a>
+        <a href="#formats">Форматы</a>
         <a href="#contacts">Контакты</a>
         <a href="#cta" class="btn btn-primary">Обсудить задачу</a>
       </nav>
@@ -85,7 +114,18 @@
               <p class="label-upper reveal">
                 ТАНЯ ГАЙДУК · VIBE CODER · WEB &amp; AI EXPERIENCES
               </p>
-              <p class="hero-logo reveal">TG</p>
+              <p class="hero-logo reveal">
+                <span class="hero-logo-3d">
+                  <img
+                    class="hero-logo-img"
+                    src="images/logo-tg-luxury.png"
+                    alt="TG — монограмма студии"
+                    width="480"
+                    height="300"
+                    decoding="async"
+                  />
+                </span>
+              </p>
               <h1 class="reveal">
                 Я делаю сайты, интерфейсы и digital-проекты, которые выглядят
                 как вайб, а работают как система
@@ -119,7 +159,7 @@
             <div class="hero-copy__bottom">
               <div class="hero-actions reveal">
                 <a href="#projects" class="btn btn-primary">Посмотреть проекты</a>
-                <a href="#cta" class="btn btn-secondary">Обсудить задачу</a>
+                <a href="#cta" class="btn btn-neon">Обсудить задачу</a>
                 <a
                   href="https://art-eko.wfolio.pro/me"
                   class="btn btn-accent"
@@ -513,6 +553,53 @@
         </div>
       </section>
 
+      <!-- БЛОК 9b — Форматы / тарифы (неоновые CTA) -->
+      <section class="section-glow-corners" id="formats" aria-labelledby="formats-title">
+        <div class="container">
+          <h2 class="section-title reveal" id="formats-title">
+            Форматы работы
+          </h2>
+          <p class="caption caption--center formats-lead reveal">
+            Подберём формат под задачу — от консультации до страницы под ключ.
+          </p>
+          <div class="tariffs-grid">
+            <article class="tariff-card reveal">
+              <span class="tariff-card__label">Старт</span>
+              <p class="tariff-card__price">от 25 000 ₽</p>
+              <p class="tariff-card__note">
+                Лендинг или визитка: структура, тексты, визуальный каркас и сборка.
+                Сроки и точная смета — после короткого брифа.
+              </p>
+              <button
+                type="button"
+                class="btn btn-neon"
+                data-open-contact-modal
+              >
+                Обсудить старт
+              </button>
+            </article>
+            <article class="tariff-card reveal">
+              <span class="tariff-card__label">Под ключ</span>
+              <p class="tariff-card__price">индивидуально</p>
+              <p class="tariff-card__note">
+                Сложный сайт, портфолио эксперта, концепция + реализация. Полный
+                цикл от идеи до публикации.
+              </p>
+              <button
+                type="button"
+                class="btn btn-neon"
+                data-open-contact-modal
+              >
+                Запросить смету
+              </button>
+            </article>
+          </div>
+        </div>
+        <div class="section-divider" aria-hidden="true">
+          <span></span><span class="star">✦</span><span></span>
+        </div>
+      </section>
+
       <!-- БЛОК 10 — Финальный CTA -->
       <section class="section-cta-final" id="cta">
         <div class="container">
@@ -527,8 +614,11 @@
             </p>
             <p class="hero-motto">Мой принцип. Мой ритм. Мой путь.</p>
             <div class="cta-actions">
-              <a href="https://t.me/artsonga" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Написать мне</a>
-              <a href="#projects" class="btn btn-secondary">Посмотреть работы</a>
+              <a href="https://t.me/artsonga" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Написать в Telegram</a>
+              <button type="button" class="btn btn-neon" data-open-contact-modal>
+                Оставить заявку
+              </button>
+              <a href="#projects" class="btn btn-neon">Посмотреть работы</a>
             </div>
           </div>
         </div>
@@ -539,7 +629,16 @@
     <footer class="site-footer" id="contacts">
       <div class="container">
         <div class="footer-brand">
-          <span class="logo-tg" aria-hidden="true">TG</span>
+          <span class="logo-tg-3d logo-tg-3d--footer" aria-hidden="true">
+            <img
+              class="logo-tg logo-tg--luxury"
+              src="images/logo-tg-luxury.png"
+              alt=""
+              width="220"
+              height="138"
+              decoding="async"
+            />
+          </span>
           <span class="brand-name">Татьяна Гайдук</span>
           <p class="footer-tagline">
             Арт Студия «Тонкая Грань» · Искусство Технологий · Вайб-Кодинг
@@ -581,6 +680,44 @@
         </p>
       </div>
     </footer>
+
+    <dialog class="modal-neon" id="contactModal" aria-labelledby="contactModalTitle">
+      <div class="modal-neon__inner">
+        <div class="modal-neon__head">
+          <h2 class="modal-neon__title" id="contactModalTitle">
+            Быстрая заявка
+          </h2>
+          <button
+            type="button"
+            class="modal-neon__close"
+            data-close-contact-modal
+            aria-label="Закрыть"
+          >
+            ×
+          </button>
+        </div>
+        <p class="caption modal-neon__hint">
+          Напишите пару строк о задаче — откроется почта с готовым текстом. Или
+          сразу в
+          <a href="https://t.me/artsonga" target="_blank" rel="noopener noreferrer">Telegram</a>.
+        </p>
+        <form class="contact-form-neon" id="contactForm" novalidate>
+          <label>
+            Имя
+            <input type="text" name="name" autocomplete="name" required />
+          </label>
+          <label>
+            Email
+            <input type="email" name="email" autocomplete="email" required />
+          </label>
+          <label>
+            О задаче
+            <textarea name="message" required placeholder="Сайт, сроки, референсы…"></textarea>
+          </label>
+          <button type="submit" class="btn btn-neon">Открыть письмо в почте</button>
+        </form>
+      </div>
+    </dialog>
 
     <script>
       (function () {
@@ -692,10 +829,64 @@
           initParticles();
           requestAnimationFrame(tick);
         }
+
+        /* Модалка заявки + неон-кнопки */
+        var contactModal = document.getElementById("contactModal");
+        var contactForm = document.getElementById("contactForm");
+
+        function openContactModal() {
+          if (contactModal && typeof contactModal.showModal === "function") {
+            contactModal.showModal();
+          }
+        }
+
+        function closeContactModal() {
+          if (contactModal && typeof contactModal.close === "function") {
+            contactModal.close();
+          }
+        }
+
+        document.querySelectorAll("[data-open-contact-modal]").forEach(function (el) {
+          el.addEventListener("click", openContactModal);
+        });
+
+        document.querySelectorAll("[data-close-contact-modal]").forEach(function (el) {
+          el.addEventListener("click", closeContactModal);
+        });
+
+        if (contactModal) {
+          contactModal.addEventListener("click", function (e) {
+            if (e.target === contactModal) closeContactModal();
+          });
+        }
+
+        if (contactForm) {
+          contactForm.addEventListener("submit", function (e) {
+            e.preventDefault();
+            var fd = new FormData(contactForm);
+            var name = (fd.get("name") || "").toString().trim();
+            var email = (fd.get("email") || "").toString().trim();
+            var message = (fd.get("message") || "").toString().trim();
+            if (!name || !email || !message) return;
+            var body =
+              "Имя: " +
+              name +
+              "\nEmail: " +
+              email +
+              "\n\n" +
+              message;
+            var subj = encodeURIComponent("Заявка с сайта — Тонкая Грань");
+            var bodyEnc = encodeURIComponent(body);
+            window.location.href =
+              "mailto:art-eko@yandex.ru?subject=" + subj + "&body=" + bodyEnc;
+            closeContactModal();
+          });
+        }
       })();
     </script>
     <script src="https://cdn.jsdelivr.net/npm/three@0.167.1/build/three.min.js"></script>
     <script src="silk-background.js"></script>
+    <script src="splash-cursor.js"></script>
     <script>
       (function () {
         var v = document.getElementById("aurora-video");

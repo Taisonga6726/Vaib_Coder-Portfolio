@@ -70,7 +70,7 @@
   /* CARDS & блоки — бренд TG: магента / неон / королевский + акцент золота */
   --tg-card-bg: linear-gradient(
     145deg,
-    rgba(117, 7, 160, 0.26) 0%,
+    rgba(1, 21, 109, 0.596)),
     rgba(134, 13, 124, 0.18) 40%,
     rgba(63, 12, 121, 0.24) 70%,
     rgba(146, 15, 221, 0.14) 100%
@@ -264,6 +264,21 @@ body.has-aurora-video::before {
   object-fit: cover;
 }
 
+/* SplashCursor: поверх фона, под шапкой; клики проходят к странице */
+.splash-cursor-layer {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.splash-cursor-layer canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
 main,
 .site-footer {
   position: relative;
@@ -318,8 +333,8 @@ a:hover {
 
 .brand-link {
   display: flex;
-  align-items: baseline;
-  gap: 12px;
+  align-items: center;
+  gap: 14px;
   color: inherit;
 }
 
@@ -327,16 +342,51 @@ a:hover {
   color: inherit;
 }
 
-.logo-tg {
-  font-family: var(--font-display);
-  font-weight: 700;
-  font-size: clamp(1.5rem, 3vw, 2rem);
-  background: var(--tg-gold-gradient);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  letter-spacing: 0.02em;
-  filter: drop-shadow(0 0 20px rgba(var(--tg-rgb-gold-classic), 0.25));
+/* 3D-презентация люкс-логотипа (PNG) — перспектива + золотые блики */
+.logo-tg-3d {
+  display: inline-block;
+  flex-shrink: 0;
+  perspective: 520px;
+  perspective-origin: 50% 50%;
+  transform-style: preserve-3d;
+}
+
+.logo-tg.logo-tg--luxury {
+  display: block;
+  height: clamp(36px, 5.2vw, 52px);
+  width: auto;
+  max-width: clamp(100px, 22vw, 150px);
+  object-fit: contain;
+  object-position: center;
+  transform: rotateX(8deg) rotateY(-14deg) translateZ(0);
+  transform-origin: center center;
+  filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.65))
+    drop-shadow(0 0 18px rgba(255, 220, 140, 0.55))
+    drop-shadow(0 0 36px rgba(var(--tg-rgb-gold-bright), 0.35))
+    drop-shadow(0 0 56px rgba(var(--tg-rgb-neon), 0.12));
+  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+    filter 0.45s ease;
+}
+
+.brand-link:hover .logo-tg--luxury {
+  transform: rotateX(3deg) rotateY(8deg) scale(1.06) translateZ(16px);
+  filter: drop-shadow(0 14px 28px rgba(0, 0, 0, 0.55))
+    drop-shadow(0 0 28px rgba(255, 235, 180, 0.7))
+    drop-shadow(0 0 52px rgba(var(--tg-rgb-gold-bright), 0.45))
+    drop-shadow(0 0 72px rgba(var(--tg-rgb-neon), 0.2));
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .logo-tg.logo-tg--luxury,
+  .brand-link:hover .logo-tg--luxury,
+  .footer-brand .logo-tg-3d--footer:hover .logo-tg--luxury,
+  .hero-logo-img,
+  .hero-copy__top:hover .hero-logo-img {
+    transition: none;
+    transform: none;
+    filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.5))
+      drop-shadow(0 0 20px rgba(var(--tg-rgb-gold-bright), 0.3));
+  }
 }
 
 .brand-name {
@@ -413,6 +463,264 @@ a:hover {
 .btn-accent:hover {
   box-shadow: var(--tg-btn-accent-glow);
   transform: translateY(-2px);
+}
+
+/* Неон / радужная обводка — вторичные CTA, форма, модалка, тарифы */
+.btn-neon {
+  position: relative;
+  isolation: isolate;
+  overflow: visible;
+  border-radius: 12px !important;
+  border: none !important;
+  background: #080510 !important;
+  color: var(--tg-white) !important;
+  font-weight: 800;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.45);
+}
+
+.btn-neon::before,
+.btn-neon::after {
+  content: "";
+  position: absolute;
+  left: -2px;
+  top: -2px;
+  border-radius: 14px;
+  background: linear-gradient(
+    45deg,
+    #fb0094,
+    #0000ff,
+    #00ff00,
+    #ffff00,
+    #ff0000,
+    #fb0094,
+    #0000ff,
+    #00ff00,
+    #ffff00,
+    #ff0000
+  );
+  background-size: 400% 400%;
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  z-index: -1;
+  animation: btn-neon-rainbow 20s linear infinite;
+}
+
+.btn-neon::after {
+  filter: blur(28px);
+  opacity: 0.85;
+}
+
+.btn-neon:hover {
+  transform: translateY(-2px);
+  color: var(--tg-white) !important;
+  background: #0e0a18 !important;
+}
+
+.btn-neon:focus-visible {
+  outline: 2px solid rgba(var(--tg-rgb-gold-bright), 0.9);
+  outline-offset: 4px;
+}
+
+@keyframes btn-neon-rainbow {
+  0% {
+    background-position: 0% 0%;
+  }
+  50% {
+    background-position: 400% 0%;
+  }
+  100% {
+    background-position: 0% 0%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btn-neon::before,
+  .btn-neon::after {
+    animation: none;
+    background-position: 50% 50%;
+  }
+}
+
+/* Тарифы */
+.tariffs-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: clamp(20px, 3vw, 28px);
+  margin-top: 28px;
+  max-width: 920px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (max-width: 700px) {
+  .tariffs-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.tariff-card {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: clamp(24px, 4vw, 32px);
+  border-radius: var(--tg-card-radius);
+  background: var(--tg-card-bg);
+  border: 1px solid var(--tg-card-border);
+  backdrop-filter: var(--tg-card-blur);
+  -webkit-backdrop-filter: var(--tg-card-blur);
+  box-shadow: var(--tg-card-inset), 0 12px 40px rgba(0, 0, 0, 0.25);
+  text-align: center;
+}
+
+.tariff-card__label {
+  font-family: var(--font-ui);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--tg-gold);
+}
+
+.tariff-card__price {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(1.75rem, 4vw, 2.25rem);
+  color: var(--tg-white);
+  margin: 0;
+}
+
+.tariff-card__note {
+  margin: 0;
+  font-size: 15px;
+  color: var(--tg-soft-white);
+  line-height: 1.55;
+  flex-grow: 1;
+}
+
+.tariff-card .btn-neon {
+  align-self: center;
+  margin-top: 4px;
+}
+
+.caption--center {
+  text-align: center;
+}
+
+.formats-lead {
+  max-width: 640px;
+  margin: -12px auto 0;
+}
+
+.modal-neon__hint {
+  margin: 0 0 16px;
+}
+
+/* Модалка заявки */
+.modal-neon {
+  width: min(440px, calc(100vw - 32px));
+  padding: 0;
+  border: 1px solid rgba(var(--tg-rgb-neon), 0.45);
+  border-radius: var(--tg-card-radius);
+  background: linear-gradient(
+    165deg,
+    rgba(20, 6, 36, 0.98) 0%,
+    rgba(10, 4, 24, 0.99) 100%
+  );
+  color: var(--tg-soft-white);
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06) inset,
+    0 24px 80px rgba(0, 0, 0, 0.65), 0 0 60px rgba(var(--tg-rgb-neon), 0.15);
+}
+
+.modal-neon::backdrop {
+  background: rgba(2, 0, 10, 0.72);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.modal-neon__inner {
+  padding: 28px 26px 24px;
+}
+
+.modal-neon__head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.modal-neon__title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.35rem;
+  color: var(--tg-gold-light);
+  margin: 0;
+  line-height: 1.25;
+}
+
+.modal-neon__close {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--tg-soft-white);
+  font-size: 22px;
+  line-height: 1;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.modal-neon__close:hover {
+  background: rgba(var(--tg-rgb-neon), 0.2);
+  color: var(--tg-white);
+}
+
+.contact-form-neon {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.contact-form-neon label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-family: var(--font-ui);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--tg-muted);
+}
+
+.contact-form-neon input,
+.contact-form-neon textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid rgba(var(--tg-rgb-neon), 0.35);
+  background: rgba(0, 0, 0, 0.35);
+  color: var(--tg-white);
+  font-family: var(--font-ui);
+  font-size: 15px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.contact-form-neon input:focus,
+.contact-form-neon textarea:focus {
+  outline: none;
+  border-color: rgba(var(--tg-rgb-gold-bright), 0.65);
+  box-shadow: 0 0 0 3px rgba(var(--tg-rgb-neon), 0.15);
+}
+
+.contact-form-neon textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.contact-form-neon .btn-neon {
+  width: 100%;
+  margin-top: 8px;
 }
 
 .nav-cta {
@@ -739,16 +1047,53 @@ a:hover {
 }
 
 .hero-logo {
-  font-family: var(--font-display);
-  font-weight: 700;
-  font-size: clamp(3rem, 8vw, 5rem);
-  line-height: 1;
-  margin: 0 0 24px;
-  background: var(--tg-gold-gradient);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  filter: drop-shadow(0 4px 30px rgba(var(--tg-rgb-gold-classic), 0.2));
+  line-height: 0;
+  margin: 0 0 clamp(20px, 3vw, 28px);
+}
+
+.hero-logo-3d {
+  display: inline-block;
+  perspective: 720px;
+  perspective-origin: 45% 40%;
+  transform-style: preserve-3d;
+}
+
+.hero-logo-img {
+  display: block;
+  height: clamp(72px, 16vw, 150px);
+  width: auto;
+  max-width: min(420px, 92vw);
+  object-fit: contain;
+  object-position: left center;
+  transform: rotateX(12deg) rotateY(-18deg) translateZ(0);
+  transform-origin: 40% 50%;
+  filter: drop-shadow(0 16px 36px rgba(0, 0, 0, 0.7))
+    drop-shadow(0 0 32px rgba(255, 225, 160, 0.65))
+    drop-shadow(0 0 64px rgba(var(--tg-rgb-gold-bright), 0.4))
+    drop-shadow(0 0 96px rgba(var(--tg-rgb-neon), 0.18));
+  transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+    filter 0.55s ease;
+}
+
+.hero-copy__top:hover .hero-logo-img {
+  transform: rotateX(5deg) rotateY(6deg) scale(1.04) translateZ(20px);
+  filter: drop-shadow(0 20px 44px rgba(0, 0, 0, 0.6))
+    drop-shadow(0 0 40px rgba(255, 240, 200, 0.75))
+    drop-shadow(0 0 80px rgba(var(--tg-rgb-gold-bright), 0.5))
+    drop-shadow(0 0 100px rgba(var(--tg-rgb-neon), 0.22));
+}
+
+@media (max-width: 960px) {
+  .hero-logo-3d {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .hero-logo-img {
+    object-position: center;
+    margin-inline: auto;
+  }
 }
 
 .hero h1 {
@@ -1515,9 +1860,19 @@ h3.card-title {
   margin-bottom: 36px;
 }
 
-.footer-brand .logo-tg {
-  font-size: clamp(2.5rem, 6vw, 3.5rem);
+.footer-brand .logo-tg-3d {
   display: inline-block;
+  margin-bottom: 4px;
+}
+
+.footer-brand .logo-tg-3d--footer .logo-tg--luxury {
+  height: clamp(56px, 11vw, 96px);
+  max-width: min(240px, 70vw);
+  transform: rotateX(10deg) rotateY(-12deg);
+}
+
+.footer-brand .logo-tg-3d--footer:hover .logo-tg--luxury {
+  transform: rotateX(4deg) rotateY(6deg) scale(1.05) translateZ(12px);
 }
 
 .footer-brand .brand-name {
