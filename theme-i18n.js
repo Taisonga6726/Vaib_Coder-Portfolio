@@ -1,9 +1,8 @@
 /**
- * Тема (dark / light) и язык (ru / en).
- * Язык: перезагрузка страницы для корректного typewriter и единообразия.
+ * Язык (ru / en).
+ * Перезагрузка страницы для корректного typewriter и единообразия.
  */
 (function () {
-  var STORAGE_THEME = "tg-theme";
   var STORAGE_LANG = "tg-lang";
 
   var EN = {
@@ -122,6 +121,8 @@
     "aud6.before": "those who need a site with ",
     "aud6.magenta": "character",
     "aud6.after": "",
+    "aud6.full":
+      "those who need a site with <span class=\"magenta\">character</span>",
     "aud7": "those who don’t want a faceless template page",
 
     "quote.text":
@@ -152,40 +153,11 @@
     "modal.placeholder": "Site, timeline, references…",
     "modal.submit": "Open email draft",
 
-    "theme.toLight": "Switch to light theme",
-    "theme.toDark": "Switch to dark theme",
     "lang.label": "Language",
   };
 
   function getStoredLang() {
     return localStorage.getItem(STORAGE_LANG) || "ru";
-  }
-
-  function getStoredTheme() {
-    return localStorage.getItem(STORAGE_THEME) || "dark";
-  }
-
-  function setTheme(theme) {
-    if (theme !== "light" && theme !== "dark") theme = "dark";
-    document.documentElement.setAttribute("data-theme", theme);
-    localStorage.setItem(STORAGE_THEME, theme);
-    var btn = document.getElementById("themeToggle");
-    if (btn) {
-      btn.setAttribute("aria-pressed", theme === "light" ? "true" : "false");
-      btn.setAttribute(
-        "aria-label",
-        theme === "dark" ? EN["theme.toLight"] : EN["theme.toDark"]
-      );
-      btn.setAttribute(
-        "title",
-        theme === "dark" ? EN["theme.toLight"] : EN["theme.toDark"]
-      );
-    }
-  }
-
-  function toggleTheme() {
-    var cur = document.documentElement.getAttribute("data-theme") || "dark";
-    setTheme(cur === "dark" ? "light" : "dark");
   }
 
   function applyEnglish() {
@@ -269,13 +241,8 @@
     }
 
     var aud6 = document.getElementById("audience-li6");
-    if (aud6) {
-      aud6.innerHTML =
-        EN["aud6.before"] +
-        '<span class="magenta">' +
-        EN["aud6.magenta"] +
-        "</span>" +
-        EN["aud6.after"];
+    if (aud6 && EN["aud6.full"]) {
+      aud6.innerHTML = EN["aud6.full"];
     }
 
     var sn = document.getElementById("stack-note");
@@ -327,23 +294,13 @@
     });
   }
 
-  function initThemeToggle() {
-    var btn = document.getElementById("themeToggle");
-    if (btn) btn.addEventListener("click", toggleTheme);
-  }
-
   function init() {
-    setTheme(getStoredTheme());
     var lang = getStoredLang();
     setLangButtons(lang);
     if (lang === "en") applyEnglish();
     initLangSwitch();
-    initThemeToggle();
   }
 
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", init);
-  } else {
-    init();
-  }
+  /* Скрипт подключается в конце body — инициализация сразу, до typewriter */
+  init();
 })();
