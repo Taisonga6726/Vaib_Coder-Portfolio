@@ -11,7 +11,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Great+Vibes&family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700;900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Great+Vibes&family=Montserrat:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;700;900&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
@@ -109,81 +109,92 @@
         <div class="container">
           <div class="hero-grid">
             <div class="hero-intro">
-              <div class="hero-brand-row reveal">
-                <p class="hero-logo">
-                  <span class="hero-logo-3d">
-                    <img
-                      class="hero-logo-img"
-                      src="images/logo_bez.png"
-                      alt="TG — монограмма студии"
-                      width="480"
-                      height="300"
-                      decoding="async"
-                    />
-                  </span>
-                </p>
-                <div class="hero-brand-text">
-                  <p class="hero-brand-kicker">
-                    AI-ПРОДАКШН НОВОГО ПОКОЛЕНИЯ
-                  </p>
-                  <p class="hero-brand-tag">
-                    Vibe Coder / Portfolio / Web &amp; AI Experiences
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="hero-headline-row">
-              <div class="hero-headline-copy">
-                <h1
-                  class="hero-name hero-typewriter"
-                  id="heroHeadline"
-                  data-line1="Я делаю сайты, интерфейсы и digital-проекты, которые выглядят как "
-                  data-line2="вайб, а работают как система"
-                  aria-label="Я делаю сайты, интерфейсы и digital-проекты, которые выглядят как вайб, а работают как система"
-                ></h1>
-                <p class="hero-lead reveal">
-                  Не просто «что-то сверстать», а собрать ощущение, стиль, логику
-                  и подачу так, чтобы проект хотелось открыть, листать и
-                  запомнить.
-                </p>
-              </div>
-              <figure class="hero-visual hero-visual--cutout reveal" aria-label="Портрет">
-                <div class="hero-photo-bloom" aria-hidden="true"></div>
-                <div class="hero-photo-frame hero-photo-frame--cutout">
-                  <div class="hero-photo-corner hero-photo-corner--tl" aria-hidden="true"></div>
-                  <div class="hero-photo-corner hero-photo-corner--tr" aria-hidden="true"></div>
-                  <div class="hero-photo-corner hero-photo-corner--bl" aria-hidden="true"></div>
-                  <div class="hero-photo-corner hero-photo-corner--br" aria-hidden="true"></div>
-                  <div class="hero-photo-inner hero-photo-inner--cutout">
-                    <span class="hero-portrait-cutout-wrap">
+              <div class="hero-brand-wrap">
+                <div class="hero-brand-row">
+                  <p class="hero-logo">
+                    <span class="hero-logo-3d">
                       <img
-                        class="hero-portrait-img"
-                        src="images/tanya_%2001bez.png"
-                        alt="Татьяна Гайдук — Арт Студия «Тонкая Грань», вайб-кодинг"
-                        width="800"
-                        height="1000"
-                        loading="eager"
+                        class="hero-logo-img"
+                        src="images/logo_bez.png"
+                        alt="TG — монограмма студии"
+                        width="480"
+                        height="300"
                         decoding="async"
-                        fetchpriority="high"
                       />
                     </span>
+                  </p>
+                  <div class="hero-brand-text">
+                    <p class="hero-brand-kicker">
+                      AI-ПРОДАКШН НОВОГО ПОКОЛЕНИЯ
+                    </p>
+                    <p class="hero-brand-tag">
+                      ТАНЯ ГАЙДУК · VIBE CODER · WEB &amp; AI EXPERIENCES
+                    </p>
                   </div>
                 </div>
-              </figure>
+              </div>
             </div>
-            <div class="hero-copy__bottom">
-              <div class="hero-actions reveal">
-                <a href="#projects" class="btn btn-primary">Посмотреть проекты</a>
-                <a href="#cta" class="btn btn-neon">Обсудить задачу</a>
+            <div class="hero-main-copy">
+              <div class="hero-split">
+                <div class="hero-split__text">
+                  <div class="hero-title-wrap">
+                    <h1
+                      class="hero-name hero-typewriter"
+                      id="heroHeadline"
+                      data-line1="Я делаю сайты, интерфейсы и digital-проекты,"
+                      data-line2="которые выглядят как вайб, а работают как система"
+                      aria-label="Я делаю сайты, интерфейсы и digital-проекты, которые выглядят как вайб, а работают как система"
+                    ></h1>
+                  </div>
+                  <p class="hero-lead hero-lead--hero" id="heroLead">
+                    Не&#8203;просто&#8203;«что-то&#8203;сверстать»,&#8203;а&#8203;собрать&#8203;ощущение,&#8203;стиль,&#8203;логику&#8203;и&#8203;подачу&#8203;так,&#8203;чтобы&#8203;проект&#8203;хотелось&#8203;открыть,&#8203;листать&#8203;и&#8203;запомнить.
+                  </p>
+                </div>
+                <figure
+                  class="hero-visual hero-visual--cutout hero-visual--hero"
+                  id="heroPortrait"
+                  aria-label="Портрет"
+                >
+                  <div class="hero-photo-bloom" aria-hidden="true"></div>
+                  <div class="hero-photo-frame hero-photo-frame--cutout">
+                    <div class="hero-photo-corner hero-photo-corner--tl" aria-hidden="true"></div>
+                    <div class="hero-photo-corner hero-photo-corner--tr" aria-hidden="true"></div>
+                    <div class="hero-photo-corner hero-photo-corner--bl" aria-hidden="true"></div>
+                    <div class="hero-photo-corner hero-photo-corner--br" aria-hidden="true"></div>
+                    <div class="hero-photo-inner hero-photo-inner--cutout">
+                      <span class="hero-portrait-cutout-wrap">
+                        <img
+                          class="hero-portrait-img"
+                          src="images/tanya_%2001bez.png"
+                          alt="Татьяна Гайдук — Арт Студия «Тонкая Грань», вайб-кодинг"
+                          width="800"
+                          height="1000"
+                          loading="eager"
+                          decoding="async"
+                          fetchpriority="high"
+                        />
+                      </span>
+                    </div>
+                  </div>
+                </figure>
+              </div>
+              <div class="hero-actions hero-actions--hero" id="heroActions">
+                <a href="#projects" class="btn btn-primary hero-hero-cta" id="heroBtnProjects"
+                  >Посмотреть проекты</a
+                >
+                <a href="#cta" class="btn btn-neon hero-hero-cta" id="heroBtnDiscuss"
+                  >Обсудить задачу</a
+                >
                 <a
                   href="https://art-eko.wfolio.pro/me"
-                  class="btn btn-accent"
+                  class="btn btn-accent hero-hero-cta"
+                  id="heroBtnPortfolio"
                   target="_blank"
                   rel="noopener noreferrer"
                   >Портфолио онлайн</a
                 >
               </div>
-              <p class="hero-motto reveal">
+              <p class="hero-motto hero-motto--hero" id="heroMotto">
                 Мой принцип. Мой ритм. Мой путь.
               </p>
             </div>
@@ -735,16 +746,67 @@
           });
         }
 
-        /* Hero: typewriter — золотые 3D-буквы */
+        /* Hero: typewriter + курсор + каскад подзаголовка и CTA */
         (function () {
           var headline = document.getElementById("heroHeadline");
           var line1 = headline && headline.getAttribute("data-line1");
           var line2 = headline && headline.getAttribute("data-line2");
           if (!headline || !line1 || !line2) return;
 
+          var mqMobile =
+            window.matchMedia &&
+            window.matchMedia("(max-width: 640px)");
           var reduced =
             window.matchMedia &&
             window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+          var TW_DELAY_MS = 800;
+          var CURSOR_TAIL_MS = 3000;
+
+          function stepMs() {
+            if (reduced) return 58;
+            if (mqMobile.matches) return 26 + Math.random() * 16;
+            return 40 + Math.random() * 20;
+          }
+
+          function runCascade(cursorEl) {
+            var lead = document.getElementById("heroLead");
+            var portrait = document.getElementById("heroPortrait");
+            var btn1 = document.getElementById("heroBtnProjects");
+            var btn2 = document.getElementById("heroBtnDiscuss");
+            var btn3 = document.getElementById("heroBtnPortfolio");
+            var motto = document.getElementById("heroMotto");
+
+            if (reduced) {
+              if (cursorEl) cursorEl.classList.add("hero-tw-cursor--fade");
+              lead && lead.classList.add("is-visible");
+              portrait && portrait.classList.add("is-visible");
+              btn1 && btn1.classList.add("is-visible");
+              btn2 && btn2.classList.add("is-visible");
+              btn3 && btn3.classList.add("is-visible");
+              motto && motto.classList.add("is-visible");
+              return;
+            }
+
+            lead && lead.classList.add("is-visible");
+            portrait && portrait.classList.add("is-visible");
+            setTimeout(function () {
+              btn1 && btn1.classList.add("is-visible");
+            }, 400);
+            setTimeout(function () {
+              btn2 && btn2.classList.add("is-visible");
+            }, 640);
+            setTimeout(function () {
+              btn3 && btn3.classList.add("is-visible");
+            }, 880);
+            setTimeout(function () {
+              motto && motto.classList.add("is-visible");
+            }, 1180);
+
+            setTimeout(function () {
+              if (cursorEl) cursorEl.classList.add("hero-tw-cursor--fade");
+            }, CURSOR_TAIL_MS);
+          }
 
           function run() {
             if (headline.getAttribute("data-tw-done")) return;
@@ -752,6 +814,9 @@
 
             var h = headline;
             h.innerHTML = "";
+            if (reduced) {
+              h.classList.add("hero-typewriter--reduced");
+            }
 
             var queue = [];
             var i;
@@ -759,17 +824,33 @@
             queue.push(null);
             for (i = 0; i < line2.length; i++) queue.push(line2.charAt(i));
 
+            var cursor = document.createElement("span");
+            cursor.className = "hero-tw-cursor";
+            cursor.setAttribute("aria-hidden", "true");
+            cursor.textContent = "|";
+            h.appendChild(cursor);
+
+            var currentWord = null;
+
             function appendChar(ch) {
               var span = document.createElement("span");
               span.className = "hero-tw-char";
               span.setAttribute("aria-hidden", "true");
               if (ch === " ") {
+                currentWord = null;
                 span.textContent = "\u00a0";
                 span.classList.add("hero-tw-space");
+                h.insertBefore(span, cursor);
               } else {
+                if (!currentWord) {
+                  currentWord = document.createElement("span");
+                  currentWord.className = "hero-tw-word";
+                  currentWord.setAttribute("aria-hidden", "true");
+                  h.insertBefore(currentWord, cursor);
+                }
                 span.textContent = ch;
+                currentWord.appendChild(span);
               }
-              h.appendChild(span);
               if (reduced) {
                 span.classList.add("is-on");
               } else {
@@ -782,29 +863,40 @@
             if (reduced) {
               queue.forEach(function (ch) {
                 if (ch === null) {
-                  var br = document.createElement("br");
-                  br.className = "hero-tw-br";
-                  br.setAttribute("aria-hidden", "true");
-                  h.appendChild(br);
+                  currentWord = null;
+                  var brR = document.createElement("br");
+                  brR.className = "hero-tw-br";
+                  brR.setAttribute("aria-hidden", "true");
+                  h.insertBefore(brR, cursor);
                 } else {
                   appendChar(ch);
                 }
               });
+              requestAnimationFrame(function () {
+                runCascade(cursor);
+              });
               return;
             }
 
-            var step = 20;
-            var t = 0;
+            var t = TW_DELAY_MS;
+            var qi = 0;
             queue.forEach(function (ch) {
               var delay = t;
+              var step = stepMs();
+              var isLast = qi === queue.length - 1;
+              qi += 1;
               setTimeout(function () {
                 if (ch === null) {
+                  currentWord = null;
                   var brEl = document.createElement("br");
                   brEl.className = "hero-tw-br";
                   brEl.setAttribute("aria-hidden", "true");
-                  h.appendChild(brEl);
+                  h.insertBefore(brEl, cursor);
                 } else {
                   appendChar(ch);
+                }
+                if (isLast) {
+                  runCascade(cursor);
                 }
               }, delay);
               t += step;
