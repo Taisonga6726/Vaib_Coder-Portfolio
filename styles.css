@@ -1136,22 +1136,22 @@ a:hover {
 @media (max-width: 960px) {
   .hero-split {
     grid-template-columns: 1fr;
-    justify-items: center;
+    justify-items: stretch;
   }
 
   .hero-split__text {
-    align-items: center;
-    text-align: center;
+    align-items: stretch;
+    text-align: left;
   }
 
   .hero .hero-split h1.hero-typewriter {
-    text-align: center;
+    text-align: left;
   }
 
   .hero-lead--hero {
-    text-align: center;
+    text-align: left;
     max-width: 38rem;
-    margin-inline: auto;
+    margin-inline: 0;
   }
 
   .hero-visual.hero-visual--hero {
@@ -1402,7 +1402,7 @@ a:hover {
   margin: 0;
   font-weight: 800;
   color: #ffffff;
-  text-align: justify;
+  text-align: left;
   text-wrap: balance;
   overflow-wrap: break-word;
   opacity: 0;

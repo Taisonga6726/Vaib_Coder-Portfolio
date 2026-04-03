@@ -1,0 +1,263 @@
+/* Плавающие переключатели: язык (вверху справа), тема (внизу справа) */
+.ui-lang,
+.ui-theme {
+  position: fixed;
+  z-index: 10020;
+  font-family: var(--font-ui);
+}
+
+.ui-lang {
+  top: max(12px, env(safe-area-inset-top));
+  right: max(12px, env(safe-area-inset-right));
+  display: inline-flex;
+  align-items: stretch;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(8, 4, 28, 0.65);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.35);
+}
+
+.ui-lang__btn {
+  margin: 0;
+  padding: 8px 14px;
+  border: none;
+  background: transparent;
+  color: var(--tg-soft-white);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.ui-lang__btn:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.ui-lang__btn.is-active {
+  background: linear-gradient(
+    90deg,
+    rgba(82, 8, 104, 0.85) 0%,
+    rgba(122, 154, 12, 0.45) 100%
+  );
+  color: #fff;
+}
+
+.ui-lang__sep {
+  width: 1px;
+  background: rgba(255, 255, 255, 0.15);
+  flex-shrink: 0;
+}
+
+.ui-theme {
+  bottom: max(18px, env(safe-area-inset-bottom));
+  right: max(18px, env(safe-area-inset-right));
+  width: 48px;
+  height: 48px;
+  padding: 0;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  background: rgba(8, 4, 28, 0.72);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  color: var(--tg-gold-light);
+  cursor: pointer;
+  box-shadow: 0 6px 28px rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+}
+
+.ui-theme:hover {
+  transform: scale(1.05);
+  border-color: rgba(255, 224, 120, 0.45);
+}
+
+.ui-theme:focus-visible {
+  outline: 2px solid rgba(255, 200, 80, 0.7);
+  outline-offset: 3px;
+}
+
+.ui-theme__icon {
+  width: 22px;
+  height: 22px;
+  display: block;
+}
+
+[data-theme="dark"] .ui-theme__icon--moon {
+  display: none;
+}
+
+[data-theme="light"] .ui-theme__icon--sun {
+  display: none;
+}
+
+[data-theme="light"] .ui-lang {
+  border-color: rgba(80, 50, 120, 0.2);
+  background: rgba(255, 255, 255, 0.88);
+  box-shadow: 0 4px 20px rgba(40, 20, 80, 0.12);
+}
+
+[data-theme="light"] .ui-lang__btn {
+  color: #2d1f4a;
+}
+
+[data-theme="light"] .ui-lang__btn:hover {
+  background: rgba(100, 60, 160, 0.08);
+  color: #1a0f30;
+}
+
+[data-theme="light"] .ui-lang__sep {
+  background: rgba(40, 20, 80, 0.12);
+}
+
+[data-theme="light"] .ui-theme {
+  background: rgba(255, 255, 255, 0.92);
+  border-color: rgba(100, 70, 140, 0.25);
+  color: #b8860b;
+  box-shadow: 0 6px 22px rgba(60, 40, 100, 0.15);
+}
+
+/* ===== Светлая тема: переопределение токенов и базы ===== */
+html[data-theme="light"] {
+  color-scheme: light;
+}
+
+html[data-theme="light"] {
+  --tg-soft-white: #1e1530;
+  --tg-muted: #5a4a72;
+  --tg-card-text: #2a1f3f;
+  --tg-card-text-soft: #3d3258;
+  --tg-header-bg: rgba(255, 255, 255, 0.92);
+  --silk-layer-opacity: 0.05;
+  --aurora-video-opacity: 0.14;
+  --silk-wave-color: #c9b8e8;
+}
+
+html[data-theme="light"] body {
+  color: var(--tg-soft-white);
+  background: #f4f0ff;
+  background-image: linear-gradient(
+    165deg,
+    #faf7ff 0%,
+    #eef3ff 38%,
+    #fff8f2 72%,
+    #f5f0ff 100%
+  );
+}
+
+html[data-theme="light"] body::before {
+  opacity: 0.07;
+  background: radial-gradient(
+    ellipse 70% 60% at 50% 20%,
+    rgba(130, 80, 200, 0.12) 0%,
+    transparent 65%
+  );
+  animation: none;
+}
+
+html[data-theme="light"] a {
+  color: #3d2a66;
+}
+
+html[data-theme="light"] a:hover {
+  color: #7b2cbf;
+}
+
+html[data-theme="light"] .site-header {
+  border-bottom-color: rgba(100, 70, 140, 0.12);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.8) inset;
+}
+
+html[data-theme="light"] .nav-desktop a:not(.btn),
+html[data-theme="light"] .nav-mobile a:not(.btn) {
+  color: #2d2048;
+}
+
+html[data-theme="light"] .nav-desktop a:not(.btn):hover,
+html[data-theme="light"] .nav-mobile a:not(.btn):hover {
+  color: #6b21a8;
+}
+
+html[data-theme="light"] .burger span {
+  background: #2d2048;
+}
+
+html[data-theme="light"] .about-text,
+html[data-theme="light"] .glass-card,
+html[data-theme="light"] .process-item,
+html[data-theme="light"] .project-card,
+html[data-theme="light"] .why-text,
+html[data-theme="light"] .stack-note,
+html[data-theme="light"] .audience-list,
+html[data-theme="light"] .quote-block,
+html[data-theme="light"] .cta-inner {
+  background-color: rgba(255, 255, 255, 0.72);
+  background-image: linear-gradient(
+      168deg,
+      rgba(255, 255, 255, 0.95) 0%,
+      rgba(248, 244, 255, 0.88) 100%
+    ),
+    var(--tg-silk-texture);
+  border-color: rgba(120, 90, 160, 0.12);
+  box-shadow: 0 12px 40px rgba(60, 40, 100, 0.08);
+}
+
+html[data-theme="light"] .stack-badge,
+html[data-theme="light"] .badge {
+  background-color: rgba(255, 255, 255, 0.85);
+  color: #3d2a55;
+  border: 1px solid rgba(100, 70, 140, 0.15);
+}
+
+html[data-theme="light"] .site-footer {
+  background: linear-gradient(180deg, #ebe4ff 0%, #ddd5f5 100%);
+  color: #2a1f40;
+}
+
+html[data-theme="light"] .site-footer a {
+  color: #3d2a66;
+}
+
+html[data-theme="light"] .section-title,
+html[data-theme="light"] .card-title {
+  color: inherit;
+}
+
+html[data-theme="light"] .hero-lead--hero {
+  color: #2a1f3a;
+}
+
+html[data-theme="light"] .hero-brand-tag {
+  color: #3d3255;
+}
+
+html[data-theme="light"] .modal-neon__inner {
+  background: #f8f6ff;
+  color: #2a1f3a;
+  border-color: rgba(100, 70, 140, 0.2);
+}
+
+html[data-theme="light"] .contact-form-neon input,
+html[data-theme="light"] .contact-form-neon textarea {
+  background: rgba(255, 255, 255, 0.95);
+  color: #1a1028;
+  border-color: rgba(100, 70, 140, 0.2);
+}
+
+@media (max-width: 900px) {
+  .ui-lang {
+    top: max(8px, env(safe-area-inset-top));
+    right: max(8px, env(safe-area-inset-right));
+  }
+
+  .ui-lang__btn {
+    padding: 7px 11px;
+    font-size: 11px;
+  }
+}
