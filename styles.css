@@ -915,7 +915,7 @@ a:hover {
   align-self: start;
   justify-self: end;
   width: 100%;
-  max-width: min(400px, 100%);
+  max-width: min(560px, 100%);
   margin: 0;
   opacity: 0;
   transform: translateY(18px);
@@ -1063,7 +1063,7 @@ a:hover {
 .hero-portrait-img {
   width: 100%;
   height: auto;
-  max-height: min(82vh, 640px);
+  max-height: min(90vh, 820px);
   display: block;
   margin: 0 auto;
   object-fit: contain;
@@ -1088,6 +1088,41 @@ a:hover {
 
 .hero-visual--cutout:hover .hero-portrait-img {
   transform: scale(1.025);
+}
+
+/* Портрет: без золотой рамки; лёгкое неоновое свечение по контуру */
+.hero-visual.hero-visual--cutout .hero-photo-frame {
+  padding: 0;
+  border-radius: 14px;
+  background: none;
+  backdrop-filter: none;
+  box-shadow:
+    0 0 0 1px rgba(var(--tg-rgb-neon), 0.22),
+    0 0 18px rgba(var(--tg-rgb-neon), 0.2),
+    0 0 36px rgba(var(--tg-rgb-neon), 0.12),
+    0 0 56px rgba(var(--tg-rgb-royal), 0.14),
+    0 18px 44px rgba(0, 0, 0, 0.4);
+  transition: box-shadow 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.hero-visual.hero-visual--cutout:hover .hero-photo-frame {
+  box-shadow:
+    0 0 0 1px rgba(var(--tg-rgb-neon), 0.32),
+    0 0 24px rgba(var(--tg-rgb-neon), 0.28),
+    0 0 48px rgba(var(--tg-rgb-neon), 0.16),
+    0 0 72px rgba(var(--tg-rgb-royal), 0.18),
+    0 22px 50px rgba(0, 0, 0, 0.38);
+}
+
+.hero-visual.hero-visual--cutout .hero-photo-inner,
+.hero-visual.hero-visual--cutout .hero-photo-inner--cutout {
+  border: none;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.hero-visual.hero-visual--cutout .hero-photo-corner {
+  display: none;
 }
 
 .hero-photo-corner {
@@ -1156,11 +1191,11 @@ a:hover {
 
   .hero-visual.hero-visual--hero {
     justify-self: center;
-    max-width: min(420px, 92vw);
+    max-width: min(520px, 96vw);
   }
 
   .hero-visual--cutout .hero-portrait-img {
-    max-height: min(58vh, 520px);
+    max-height: min(68vh, 640px);
   }
 }
 
@@ -1448,7 +1483,7 @@ a:hover {
 
 @media (max-width: 640px) {
   .hero-visual.hero-visual--hero .hero-portrait-img {
-    max-height: min(46vh, 400px);
+    max-height: min(56vh, 520px);
   }
 }
 
